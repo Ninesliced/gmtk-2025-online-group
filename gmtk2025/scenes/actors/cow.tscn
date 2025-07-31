@@ -1,5 +1,22 @@
-[gd_scene format=3 uid="uid://b43s2losa3uh4"]
+[gd_scene load_steps=4 format=3 uid="uid://b43s2losa3uh4"]
 
-[node name="Cow" type="Node2D"]
+[ext_resource type="Script" uid="uid://4p43ov0j06bu" path="res://scenes/actors/cow.gd" id="1_nv7pv"]
+[ext_resource type="Texture2D" uid="uid://dxdah5chmkbav" path="res://assets/cow.png" id="2_nv7pv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ociam"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_nv7pv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Cow" type="Node2D" groups=["cow"]]
+script = ExtResource("1_nv7pv")
+cow_type = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ociam")
