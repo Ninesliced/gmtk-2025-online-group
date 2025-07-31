@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://cpv386wtlsucs"]
 
-[ext_resource type="PackedScene" uid="uid://de7ib6xc58aex" path="res://scenes/pencil/pencil.tscn" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://de7ib6xc58aex" path="res://scenes/pencil/lasso.tscn" id="1_o5qli"]
 
 [node name="Main" type="Node2D"]
 
-[node name="Pencil" parent="." instance=ExtResource("1_o5qli")]
+[node name="Lasso" parent="." instance=ExtResource("1_o5qli")]

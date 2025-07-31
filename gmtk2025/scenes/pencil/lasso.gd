@@ -2,6 +2,8 @@ extends Node2D
 
 @export var close_detection_radius = 64
 
+signal shape_closed(shape: PackedVector2Array)
+
 @onready var line: Line2D = $Line2D
 
 var _is_tracing := false
@@ -34,7 +36,7 @@ func _end_tracing(pos: Vector2):
 	
 	if pos.distance_to(_beginning_pos) < close_detection_radius:
 		line.closed = true
-		print("close")
+		shape_closed.emit(PackedVector2Array(line.points))
 	
 	_beginning_pos = null
 
