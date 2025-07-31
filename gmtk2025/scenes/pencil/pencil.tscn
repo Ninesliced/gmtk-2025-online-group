@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://de7ib6xc58aex"]
+[gd_scene load_steps=3 format=3 uid="uid://de7ib6xc58aex"]
 
 [ext_resource type="Script" uid="uid://d140xlkwwblqe" path="res://scenes/pencil/pencil.gd" id="1_n2ecx"]
+[ext_resource type="Texture2D" uid="uid://drhywoohyia5a" path="res://icon.svg" id="2_nydws"]
 
 [node name="Pencil" type="Node2D"]
 script = ExtResource("1_n2ecx")
 
 [node name="Line2D" type="Line2D" parent="."]
+texture = ExtResource("2_nydws")
+texture_mode = 1
