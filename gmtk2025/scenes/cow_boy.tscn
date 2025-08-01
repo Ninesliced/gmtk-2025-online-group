@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://df1n1hlgttg4m"]
+
+[ext_resource type="Script" uid="uid://d3rc64c3ruhkr" path="res://scenes/cow_boy.gd" id="1_04k5j"]
+[ext_resource type="Texture2D" uid="uid://c7qf6b7vq66m0" path="res://assets/crowboy_placeholder.png" id="2_dbklo"]
+[ext_resource type="Texture2D" uid="uid://bxf0s551juiks" path="res://assets/crowboy_placeholder_happy.png" id="3_v3xfg"]
+[ext_resource type="Texture2D" uid="uid://cyguuwkiwchpw" path="res://assets/crowboy_placeholder_sad.png" id="4_27ov1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v3xfg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_v3xfg")
+}],
+"loop": true,
+"name": &"happy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dbklo")
+}],
+"loop": true,
+"name": &"neutral",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"sad",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_27ov1"]
+resource_name = "neutral"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ttyhb"]
+_data = {
+&"neutral": SubResource("Animation_27ov1")
+}
+
+[node name="CowBoy" type="Node2D"]
+script = ExtResource("1_04k5j")
+sprite_neutral = ExtResource("2_dbklo")
+sprite_happy = ExtResource("3_v3xfg")
+sprite_sad = ExtResource("4_27ov1")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 100
+sprite_frames = SubResource("SpriteFrames_v3xfg")
+animation = &"sad"
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ttyhb")
+}

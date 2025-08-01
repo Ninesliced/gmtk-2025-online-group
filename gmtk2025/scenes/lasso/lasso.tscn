@@ -1,12 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://de7ib6xc58aex"]
+[gd_scene load_steps=4 format=3 uid="uid://de7ib6xc58aex"]
 
 [ext_resource type="Script" uid="uid://d140xlkwwblqe" path="res://scenes/lasso/lasso.gd" id="1_n2ecx"]
-[ext_resource type="Texture2D" uid="uid://do8dv43c3gkyb" path="res://assets/rope_placeholder.png" id="2_ph2b2"]
+[ext_resource type="Texture2D" uid="uid://cl4nc8xec3oq" path="res://assets/objects/rope_pink.png" id="2_dgwb3"]
+[ext_resource type="Texture2D" uid="uid://coy2dqx6bfbgi" path="res://assets/objects/rope_orange.png" id="3_pwd4u"]
 
 [node name="Lasso" type="Node2D"]
 script = ExtResource("1_n2ecx")
+left_click_cow_type = 1
+right_click_cow_type = 2
+lasso_pink_texture = ExtResource("2_dgwb3")
+lasso_orange_texture = ExtResource("3_pwd4u")
 
 [node name="Line2D" type="Line2D" parent="."]
-width = 8.0
-texture = ExtResource("2_ph2b2")
+texture_repeat = 2
+width = 7.0
 texture_mode = 1
