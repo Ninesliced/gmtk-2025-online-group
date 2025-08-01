@@ -1,4 +1,5 @@
 extends Node2D
+class_name CowManager
 
 @export var score_manager: ScoreManager
 @export var target_cow_count: int = 20
@@ -14,6 +15,7 @@ func _process(delta: float) -> void:
 		for i in range(target_cow_count - cow_count):
 			var cow = cow_prefab.instantiate()
 			add_child(cow)
+			cow.cow_manager = self
 			cow.global_position = Vector2(
 				randf_range(spawn_area.position.x, spawn_area.end.x),
 				randf_range(spawn_area.position.y, spawn_area.end.y)
