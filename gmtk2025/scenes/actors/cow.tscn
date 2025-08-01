@@ -404,10 +404,17 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Cow" type="Node2D" groups=["cow"]]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nv7pv"]
+radius = 8.0
+height = 22.0
+
+[node name="Cow" type="CharacterBody2D" groups=["cow"]]
 script = ExtResource("1_nv7pv")
 cow_type = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ociam")
 animation = &"cow_black_left"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_nv7pv")
