@@ -11,7 +11,6 @@ enum CowType {
 @export var cow_type: CowType = CowType.UNDEFINED
 
 var cow_manager: CowManager
-var velocity = Vector2(0, -1)
 
 @export_range(0.0, 100.0) var move_speed: float = 50.0
 @export var time_between_moves: float = 2.0

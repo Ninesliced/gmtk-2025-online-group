@@ -1,6 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://df1n1hlgttg4m"]
+[gd_scene load_steps=8 format=3 uid="uid://c3y7gw8a36iol"]
 
-[ext_resource type="Script" uid="uid://d3rc64c3ruhkr" path="res://scenes/cow_boy.gd" id="1_04k5j"]
+[ext_resource type="Script" path="res://scenes/cow_boy.gd" id="1_04k5j"]
 [ext_resource type="Texture2D" uid="uid://c7qf6b7vq66m0" path="res://assets/crowboy_placeholder.png" id="2_dbklo"]
 [ext_resource type="Texture2D" uid="uid://bxf0s551juiks" path="res://assets/crowboy_placeholder_happy.png" id="3_v3xfg"]
 [ext_resource type="Texture2D" uid="uid://cyguuwkiwchpw" path="res://assets/crowboy_placeholder_sad.png" id="4_27ov1"]

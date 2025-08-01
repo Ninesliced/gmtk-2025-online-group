@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://de7ib6xc58aex" path="res://scenes/lasso/lasso.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://bkofb2g1mnla7" path="res://scenes/score_manager.gd" id="2_jyhfs"]
 [ext_resource type="Script" uid="uid://cajwtdoeayq2u" path="res://scenes/cow_manager.gd" id="2_sugp2"]
-[ext_resource type="PackedScene" uid="uid://df1n1hlgttg4m" path="res://scenes/cow_boy.tscn" id="3_tefeu"]
+[ext_resource type="PackedScene" uid="uid://c3y7gw8a36iol" path="res://scenes/cow_boy.tscn" id="3_tefeu"]
 [ext_resource type="PackedScene" uid="uid://dcsecleggohek" path="res://scenes/ui/hud/game_hud.tscn" id="5_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://cgohblroooisk" path="res://assets/level/level_spritesheet.png" id="7_o6xl0"]
 
@@ -21,8 +21,6 @@ sources/0 = SubResource("TileSetAtlasSource_tipki")
 [node name="Main" type="Node2D"]
 
 [node name="Lasso" parent="." instance=ExtResource("1_o5qli")]
-left_click_cow_type = 1
-right_click_cow_type = 2
 
 [node name="ScoreManager" type="Node2D" parent="."]
 script = ExtResource("2_jyhfs")
