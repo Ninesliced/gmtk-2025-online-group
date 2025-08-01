@@ -8,10 +8,13 @@ enum CowType {
 	BLACK,
 }
 
-@export var cow_manager: CowManager
 @export var cow_type: CowType = CowType.UNDEFINED
+@export var move_speed = 20
 
-var velocity = Vector2(-1, 0)
+var cow_manager: CowManager
+var velocity = Vector2(0, -1)
+
+var _ai_target = Vector2.ZERO
 
 func _ready() -> void:
 	cow_type = randi_range(1, 3)
@@ -23,13 +26,20 @@ func _process(delta: float) -> void:
 	$AnimatedSprite2D.play(_get_current_animation())
 
 func _physics_process(delta: float) -> void:
+	var direction = (_ai_target - position).normalized()
 	position += velocity * delta
 
 func _process_ai(delta: float):
-	pass
-	#_ai_target = Vector2(
-		#randf_range(cow_manager.spawn_area),
-	#)
+	_ai_target = Vector2(
+		randf_range(
+			cow_manager.spawn_area.position.x,
+			cow_manager.spawn_area.end.x,
+		),
+		randf_range(
+			cow_manager.spawn_area.position.y,
+			cow_manager.spawn_area.end.y,
+		),
+	)
 
 func capture():
 	queue_free()
@@ -45,7 +55,6 @@ func _cow_type_to_str(_cow_type: CowType) -> String:
 	return ""
 
 func _velocity_to_direction():
-	velocity = Vector2(1,0)
 	var angle = fmod(velocity.angle() + TAU*2, TAU)
 	if TAU*(1.0/8) <= angle and angle <= TAU*(3.0/8):
 		return "down"

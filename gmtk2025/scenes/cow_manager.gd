@@ -14,8 +14,9 @@ func _process(delta: float) -> void:
 	if cow_count < target_cow_count:
 		for i in range(target_cow_count - cow_count):
 			var cow = cow_prefab.instantiate()
-			add_child(cow)
 			cow.cow_manager = self
+			print(cow.cow_manager)
+			add_child(cow)
 			cow.global_position = Vector2(
 				randf_range(spawn_area.position.x, spawn_area.end.x),
 				randf_range(spawn_area.position.y, spawn_area.end.y)
