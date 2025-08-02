@@ -1,9 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://de7ib6xc58aex"]
+[gd_scene load_steps=11 format=3 uid="uid://de7ib6xc58aex"]
 
 [ext_resource type="Script" uid="uid://d140xlkwwblqe" path="res://scenes/lasso/lasso.gd" id="1_n2ecx"]
 [ext_resource type="Texture2D" uid="uid://cl4nc8xec3oq" path="res://assets/objects/rope_pink.png" id="2_dgwb3"]
 [ext_resource type="Texture2D" uid="uid://coy2dqx6bfbgi" path="res://assets/objects/rope_orange.png" id="3_pwd4u"]
 [ext_resource type="AudioStream" uid="uid://c7bnap21ahcqj" path="res://assets/sounds/sfx_lasso_stretch_lp.ogg" id="4_pwd4u"]
+[ext_resource type="AudioStream" uid="uid://cjyo865wi0wy4" path="res://assets/sounds/catch_cow/sfx_sfx_catch_cow_01.ogg" id="5_anfcu"]
+[ext_resource type="AudioStream" uid="uid://bhmq72fvqcmv6" path="res://assets/sounds/catch_cow/sfx_sfx_catch_cow_02.ogg" id="6_tg17c"]
+[ext_resource type="AudioStream" uid="uid://bg6wmwtofw21k" path="res://assets/sounds/catch_cow/sfx_sfx_catch_cow_03.ogg" id="7_xy5p6"]
+[ext_resource type="AudioStream" uid="uid://cba0keq3gix7f" path="res://assets/sounds/catch_cow/sfx_sfx_catch_cow_04.ogg" id="8_lvtr1"]
+[ext_resource type="AudioStream" uid="uid://bohsih5gyn2vu" path="res://assets/sounds/catch_cow/sfx_sfx_catch_cow_05.ogg" id="9_hscoj"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_qr8mf"]
+random_pitch = 1.15
+random_volume_offset_db = 1.02
+streams_count = 5
+stream_0/stream = ExtResource("5_anfcu")
+stream_1/stream = ExtResource("6_tg17c")
+stream_2/stream = ExtResource("7_xy5p6")
+stream_3/stream = ExtResource("8_lvtr1")
+stream_4/stream = ExtResource("9_hscoj")
 
 [node name="Lasso" type="Node2D"]
 script = ExtResource("1_n2ecx")
@@ -19,3 +34,6 @@ texture_mode = 1
 
 [node name="StretchSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_pwd4u")
+
+[node name="CatchCowSound" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_qr8mf")

@@ -13,6 +13,7 @@ signal shape_closed(shape: PackedVector2Array, cow_type: Cow.CowType)
 var _is_tracing := false
 var _beginning_pos = null
 var _lasso_type: Cow.CowType
+var _last_trace_point: Vector2
 
 func _process(delta):
 	$StretchSound.volume_linear = move_toward(
@@ -40,6 +41,7 @@ func _start_tracing(pos: Vector2, button_index: int):
 	$StretchSound.play()
 	
 	_is_tracing = true 
+	_last_trace_point = pos
 	_beginning_pos = pos
 	
 	line.clear_points()
@@ -62,4 +64,8 @@ func _end_tracing(pos: Vector2):
 func _process_tracing(pos):
 	line.add_point(pos)
 	
-	$StretchSound.volume_linear = 1.0
+	var diff = ((_last_trace_point - pos).length())
+	$StretchSound.volume_linear = clamp(diff / 10, 0.4, 1.5)
+	$StretchSound.pitch_scale = clamp(diff / 4, 0.8, 2.5)
+	
+	_last_trace_point = pos
