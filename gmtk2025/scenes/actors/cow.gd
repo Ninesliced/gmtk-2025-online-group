@@ -22,10 +22,13 @@ var timer: float = 0.0
 
 func _ready() -> void:
 	cow_type = randi_range(1, 3)
-	$AnimatedSprite2D.modulate = Global.cow_type_to_color(cow_type)
-	
+
 func _process(delta: float) -> void:
-	$AnimatedSprite2D.play(_get_current_animation())
+	if velocity.length() > 0.01:
+		$AnimatedSprite2D.speed_scale = 1.0
+		$AnimatedSprite2D.play(_get_current_animation())
+	else:
+		$AnimatedSprite2D.speed_scale = 0.0
 
 func _physics_process(delta: float) -> void:
 	if waiting:
@@ -36,6 +39,7 @@ func _physics_process(delta: float) -> void:
 		var direction = (target_position - global_position).normalized()
 		velocity = direction * move_speed
 		move_and_slide()
+		
 		# If cow is very close to target, stop and start waiting
 		if global_position.distance_to(target_position) <= 1.0:
 			velocity = Vector2.ZERO
