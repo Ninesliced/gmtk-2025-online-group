@@ -14,14 +14,15 @@ var cow_manager: CowManager
 
 @export_range(0.0, 100.0) var move_speed: float = 50.0
 @export var time_between_moves: float = 2.0
-# ranges for the next random position 
 @export var cow_position_offset: int = 200
+
 var target_position: Vector2
 var waiting: bool = true
 var timer: float = 0.0
 
 func _ready() -> void:
 	cow_type = randi_range(1, 2)
+	add_to_group("cow")
 
 func _process(delta: float) -> void:
 	if velocity.length() > 0.01:
@@ -33,26 +34,6 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	velocity = Vector2.UP * move_speed
 	move_and_slide()
-	#if waiting:
-		#timer -= delta
-		#if timer <= 0.0:
-			#_pick_new_target()
-	#else:
-		#var direction = (target_position - global_position).normalized()
-		#velocity = direction * move_speed
-		#move_and_slide()
-		#
-		## If cow is very close to target, stop and start waiting
-		#if global_position.distance_to(target_position) <= 1.0:
-			#velocity = Vector2.ZERO
-			#waiting = true
-			#timer = time_between_moves
-#
-#func _pick_new_target():
-	#var rand_x = randf_range(position.x + cow_position_offset, position.x - cow_position_offset)
-	#var rand_y = randf_range(position.y + cow_position_offset,position.y - cow_position_offset)
-	#target_position = Vector2(rand_x, rand_y)
-	#waiting = false
 
 func _cow_type_to_str(_cow_type: CowType) -> String:
 	match _cow_type:
@@ -79,4 +60,4 @@ func _get_current_animation():
 	return "cow_" + _cow_type_to_str(cow_type) + "_" + _velocity_to_direction()
 
 func capture():
-	queue_free() # cow ded
+	queue_free() # remove cow from scene

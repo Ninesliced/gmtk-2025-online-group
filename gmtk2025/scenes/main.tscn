@@ -87,5 +87,3 @@ texture = ExtResource("8_choun")
 [node name="RightFence" type="Sprite2D" parent="."]
 position = Vector2(435, 135)
 texture = ExtResource("9_ya4ey")
-
-[connection signal="shape_closed" from="Lasso" to="CowManager" method="_on_lasso_shape_closed"]

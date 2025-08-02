@@ -14,6 +14,9 @@ var _is_tracing := false
 var _beginning_pos = null
 var _lasso_type: Cow.CowType
 
+func _ready():
+	shape_closed.connect(_on_shape_closed)
+
 func _process(delta):
 	$StretchSound.volume_linear = move_toward(
 		$StretchSound.volume_linear, 0.0, delta*3
@@ -61,5 +64,20 @@ func _end_tracing(pos: Vector2):
 
 func _process_tracing(pos):
 	line.add_point(pos)
-	
 	$StretchSound.volume_linear = 1.0
+
+func _on_shape_closed(shape: PackedVector2Array, cow_type: Cow.CowType) -> void:
+	var pink_count = 0
+	var black_count = 0
+
+	for cow in get_tree().get_nodes_in_group("cow"):
+		if Geometry2D.is_point_in_polygon(cow.global_position, shape):
+			match cow.cow_type:
+				Cow.CowType.PINK:
+					pink_count += 1
+				Cow.CowType.BLACK:
+					black_count += 1
+			cow.capture()
+
+	print("Pink cows:", pink_count)
+	print("Black cows:", black_count)
