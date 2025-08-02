@@ -31,7 +31,7 @@ visible = false
 [node name="CowManager" type="Node2D" parent="." node_paths=PackedStringArray("score_manager")]
 script = ExtResource("2_sugp2")
 score_manager = NodePath("../ScoreManager")
-spawn_area = Rect2(100, 0, 380, 270)
+spawn_area = Rect2(20, 20, 420, 220)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -100
