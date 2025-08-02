@@ -18,8 +18,8 @@ func _process(delta: float) -> void:
 			print(cow.cow_manager)
 			add_child(cow)
 			cow.global_position = Vector2(
-				randf_range(spawn_area.position.x, spawn_area.end.x),
-				randf_range(spawn_area.position.y, spawn_area.end.y)
+				global_position.x + randf_range(0, 140),
+				global_position.y
 			)
 
 func _on_lasso_shape_closed(shape: PackedVector2Array, cow_type: Cow.CowType) -> void:
