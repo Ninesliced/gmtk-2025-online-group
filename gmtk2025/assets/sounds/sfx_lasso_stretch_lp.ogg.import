@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/sfx_lasso_stretch_lp.ogg-87e54d899e9024e51a93
 
 [params]
 
-loop=false
-loop_offset=0
-bpm=0
+loop=true
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4
