@@ -30,6 +30,7 @@ lasso_orange_texture = ExtResource("3_pwd4u")
 [node name="Line2D" type="Line2D" parent="."]
 texture_repeat = 2
 width = 7.0
+texture = ExtResource("3_pwd4u")
 texture_mode = 1
 
 [node name="StretchSound" type="AudioStreamPlayer2D" parent="."]

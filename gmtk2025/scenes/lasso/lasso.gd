@@ -33,10 +33,8 @@ func _input(event: InputEvent) -> void:
 func _start_tracing(pos: Vector2, button_index: int):
 	if button_index == MOUSE_BUTTON_LEFT:
 		_lasso_type = left_click_cow_type
-		line.texture = lasso_pink_texture
 	elif button_index == MOUSE_BUTTON_RIGHT:
 		_lasso_type = right_click_cow_type
-		line.texture = lasso_orange_texture
 	
 	$StretchSound.play()
 	
@@ -56,6 +54,7 @@ func _end_tracing(pos: Vector2):
 		shape_closed.emit(PackedVector2Array(line.points), _lasso_type)
 	
 	$StretchSound.stop()
+	$CatchCowSound.play()
 	
 	_lasso_type = Cow.CowType.UNDEFINED
 	_beginning_pos = null
