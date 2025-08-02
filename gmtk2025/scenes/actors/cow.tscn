@@ -409,6 +409,7 @@ animations = [{
 [node name="Cow" type="CharacterBody2D" groups=["cow"]]
 script = ExtResource("1_nv7pv")
 cow_type = 2
+move_speed = 20.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ociam")

@@ -4,8 +4,8 @@ class_name Cow
 enum CowType {
 	UNDEFINED,
 	PINK,
-	ORANGE,
 	BLACK,
+	ORANGE,
 }
 
 @export var cow_type: CowType = CowType.UNDEFINED
@@ -21,7 +21,7 @@ var waiting: bool = true
 var timer: float = 0.0
 
 func _ready() -> void:
-	cow_type = randi_range(1, 3)
+	cow_type = randi_range(1, 2)
 
 func _process(delta: float) -> void:
 	if velocity.length() > 0.01:
