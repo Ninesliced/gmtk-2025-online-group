@@ -1,6 +1,7 @@
 extends Node
 
 signal gain_point
+signal gain_a_lot_point
 signal lose_point
 
 @export var max_energy: float = 100.0
@@ -59,7 +60,10 @@ func apply_lasso_result(pink_count: int, black_count: int, lasso_type: Cow.CowTy
 		points_per_right_cow *= combo_multiplier 
 		points_per_wrong_cow *= combo_multiplier 
 	
-	if final_point_diff > 0:
+	if final_point_diff > 150:
+		gain_a_lot_point.emit()
+		$CatchCowSound.play()
+	elif final_point_diff > 0:
 		gain_point.emit()
 		$CatchCowSound.play()
 	elif final_point_diff < 0 or (final_point_diff == 0 and total > 0):
@@ -90,4 +94,4 @@ func apply_lasso_result(pink_count: int, black_count: int, lasso_type: Cow.CowTy
 func _update_ui() -> void:
 	bar.value = energy
 	combo_label.text = "Cowmbo " + str(combo)
-	score_label.text = "%04d"
+	score_label.text = "%04d" % score
