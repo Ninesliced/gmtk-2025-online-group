@@ -90,4 +90,4 @@ func apply_lasso_result(pink_count: int, black_count: int, lasso_type: Cow.CowTy
 func _update_ui() -> void:
 	bar.value = energy
 	combo_label.text = "Cowmbo " + str(combo)
-	score_label.text = "%04d" % score
+	score_label.text = "%04d"

@@ -175,13 +175,16 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="score label" type="Label" parent="UI/GameHUD/EnergyBar"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_right = -0.0941176
 offset_left = -69.0
 offset_top = -9.0
 offset_right = 11.0
 offset_bottom = 23.0
 text = "0000"
 label_settings = SubResource("LabelSettings_jkv2x")
+horizontal_alignment = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="time label" type="Label" parent="UI/GameHUD/EnergyBar"]
