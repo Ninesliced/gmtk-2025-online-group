@@ -30,3 +30,9 @@ func _on_score_manager_lose_point() -> void:
 	set_sprite_angry()
 	$AngrySound.play()
 	$AnimationPlayer.play("shake")
+
+func _on_score_manager_gain_a_lot_point() -> void:
+	set_sprite_happy()
+	$VeryHappySound.play()
+	$AnimationPlayer.play("bounce")
+	$SparklesParticle.emitting = true

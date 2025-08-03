@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbl5oj5cgbtr3"]
+
+[ext_resource type="FontFile" uid="uid://jetf8jjakm1d" path="res://assets/fonts/font.ttf" id="1_0ukgp"]
+[ext_resource type="Script" uid="uid://b5l14xhjfntvu" path="res://scenes/ui/score_particle.gd" id="2_6cta2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6cta2"]
+font = ExtResource("1_0ukgp")
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="ScoreParticle" type="Label"]
+z_index = 100
+offset_left = -28.0
+offset_top = -8.0
+offset_right = 28.0
+offset_bottom = 11.0
+text = "+123"
+label_settings = SubResource("LabelSettings_6cta2")
+horizontal_alignment = 1
+script = ExtResource("2_6cta2")
