@@ -9,9 +9,9 @@ class_name CowManager
 
 var cow_prefab: PackedScene = load("res://scenes/actors/cow.tscn")
 var spawn_timer: Timer
+@export_range(0.0, 100.0) var spawned_cows_speed: int = 40
 
 func _ready() -> void:
-	# Create and start the timer
 	spawn_timer = Timer.new()
 	spawn_timer.wait_time = spawn_interval
 	spawn_timer.autostart = true
@@ -28,6 +28,7 @@ func _on_spawn_timer_timeout() -> void:
 		for i in range(spawn_count):
 			var cow = cow_prefab.instantiate()
 			cow.cow_manager = self
+			cow.move_speed = spawned_cows_speed
 			add_child(cow)
 			cow.global_position = Vector2(
 				global_position.x + randf_range(-spawn_area_x_offset, spawn_area_x_offset),

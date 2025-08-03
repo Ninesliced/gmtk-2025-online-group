@@ -56,6 +56,7 @@ sources/1 = SubResource("TileSetAtlasSource_eb6dy")
 
 [node name="ScoreManager" type="Node2D" parent="."]
 script = ExtResource("2_jyhfs")
+drain_rate = 2.0
 
 [node name="CowBoy" parent="." instance=ExtResource("3_tefeu")]
 visible = false
@@ -89,7 +90,7 @@ scale = Vector2(1.68, 0.160001)
 value = 100.0
 texture_progress = ExtResource("8_ya4ey")
 
-[node name="Label" type="Label" parent="UI/EnergyBar"]
+[node name="combo label" type="Label" parent="UI/EnergyBar"]
 layout_mode = 0
 offset_left = 0.595229
 offset_top = 137.499
@@ -97,6 +98,14 @@ offset_right = 40.5952
 offset_bottom = 160.499
 scale = Vector2(0.411277, 3.21871)
 text = "Combo: 0"
+
+[node name="score label" type="Label" parent="UI/EnergyBar"]
+offset_left = 51.1905
+offset_top = 131.249
+offset_right = 124.19
+offset_bottom = 154.249
+scale = Vector2(0.411277, 3.21871)
+text = "ur skor: 0"
 
 [node name="LeftFence" type="Sprite2D" parent="."]
 position = Vector2(46, 135)
