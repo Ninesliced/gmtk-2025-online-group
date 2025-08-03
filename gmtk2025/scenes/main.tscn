@@ -1,10 +1,13 @@
-[gd_scene load_steps=21 format=4 uid="uid://cpv386wtlsucs"]
+[gd_scene load_steps=24 format=4 uid="uid://cpv386wtlsucs"]
 
 [ext_resource type="PackedScene" uid="uid://de7ib6xc58aex" path="res://scenes/lasso/lasso.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://bkofb2g1mnla7" path="res://scenes/score_manager.gd" id="2_jyhfs"]
 [ext_resource type="Script" uid="uid://cajwtdoeayq2u" path="res://scenes/cow_manager.gd" id="2_sugp2"]
 [ext_resource type="PackedScene" uid="uid://c3y7gw8a36iol" path="res://scenes/cow_boy.tscn" id="3_tefeu"]
+[ext_resource type="Texture2D" uid="uid://blewfy5t6hx4x" path="res://assets/cowboy/cowboy_neutral.png" id="4_muem4"]
+[ext_resource type="Texture2D" uid="uid://d3tpjfej0g3im" path="res://assets/cowboy/cowboy_happy.png" id="5_dp3eg"]
 [ext_resource type="PackedScene" uid="uid://dcsecleggohek" path="res://scenes/ui/hud/game_hud.tscn" id="5_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://c3grlw87bjraa" path="res://assets/cowboy/cowboy_angry.png" id="6_0ld40"]
 [ext_resource type="Texture2D" uid="uid://dn06cvcwwuojn" path="res://scenes/fence.png" id="6_85g3d"]
 [ext_resource type="Texture2D" uid="uid://cgohblroooisk" path="res://assets/level/level_spritesheet.png" id="7_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://dqrmt123tpurr" path="res://scenes/left fence.png" id="8_choun"]
@@ -81,7 +84,9 @@ pink_represent = NodePath("../pink fence")
 black_represent = NodePath("../black fence")
 
 [node name="CowBoy" parent="." instance=ExtResource("3_tefeu")]
-visible = false
+sprite_neutral = ExtResource("4_muem4")
+sprite_happy = ExtResource("5_dp3eg")
+sprite_sad = ExtResource("6_0ld40")
 
 [node name="CowManager" type="Node2D" parent="."]
 position = Vector2(240, -40)
@@ -132,7 +137,7 @@ offset_left = -69.0
 offset_top = -9.0
 offset_right = 11.0
 offset_bottom = 23.0
-text = "000"
+text = "0000"
 label_settings = SubResource("LabelSettings_jkv2x")
 
 [node name="time label" type="Label" parent="UI/GameHUD/EnergyBar"]
@@ -188,3 +193,6 @@ autoplay = true
 
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
 position = Vector2(240, 134)
+
+[connection signal="gain_point" from="ScoreManager" to="CowBoy" method="_on_score_manager_gain_point"]
+[connection signal="lose_point" from="ScoreManager" to="CowBoy" method="_on_score_manager_lose_point"]

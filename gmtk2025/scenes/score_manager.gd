@@ -1,5 +1,8 @@
 extends Node
 
+signal gain_point
+signal lose_point
+
 @export var max_energy: float = 100.0
 @export var drain_rate: float = 5.0 # drain per sec
 @export var base_gain: float = 2.5 # base... gain
@@ -46,12 +49,15 @@ func apply_lasso_result(pink_count: int, black_count: int) -> void:
 		score += gain * gain_multiplier
 		energy = min(energy + gain, max_energy)
 		print(String("%.1f" % gain), " energy (Combo", combo, ")")
+		gain_point.emit()
 	else:
 		# mixed or zero
 		var loss = total * penalty_per_cow + combo * penalty_per_combo
 		energy = max(energy - loss, 0)
 		combo = 0
 		print(String("%.1f" % loss), " energy (combo reset)")
+		lose_point.emit()
+
 	_update_ui()
 
 func _update_ui() -> void:
