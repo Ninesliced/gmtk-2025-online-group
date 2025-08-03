@@ -100,6 +100,7 @@ scale = Vector2(0.411277, 3.21871)
 text = "Combo: 0"
 
 [node name="score label" type="Label" parent="UI/EnergyBar"]
+layout_mode = 0
 offset_left = 51.1905
 offset_top = 131.249
 offset_right = 124.19

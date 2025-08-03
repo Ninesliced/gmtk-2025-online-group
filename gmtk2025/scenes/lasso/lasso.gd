@@ -21,6 +21,9 @@ func _process(delta):
 	$StretchSound.volume_linear = move_toward(
 		$StretchSound.volume_linear, 0.0, delta * 3
 	)
+	
+	if _is_tracing:
+		pass
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
