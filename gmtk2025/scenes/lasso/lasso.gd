@@ -84,6 +84,7 @@ func _on_shape_closed(shape: PackedVector2Array, _lasso_type: Cow.CowType) -> vo
 	var captured_cows = []
 
 	for cow in get_tree().get_nodes_in_group("cow"):
+		var points = []
 		if Geometry2D.is_point_in_polygon(cow.global_position, shape):
 			match cow.cow_type:
 				Cow.CowType.PINK:
