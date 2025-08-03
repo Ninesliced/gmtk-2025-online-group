@@ -35,8 +35,8 @@ func _process(delta: float) -> void:
 	if energy == 0:
 		# you lose logic
 		combo = 0
-		get_tree().paused = true
-		print("Game Over!")
+		# get_tree().paused = true
+		# print("Game Over!")
 	_update_ui()
 
 @export var pink_represent: cow_rep

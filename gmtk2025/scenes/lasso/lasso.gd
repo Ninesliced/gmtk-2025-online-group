@@ -82,10 +82,10 @@ func _on_shape_closed(shape: PackedVector2Array, _lasso_type: Cow.CowType) -> vo
 	var pink_count = 0
 	var black_count = 0
 	var captured_cows = []
-
 	for cow in get_tree().get_nodes_in_group("cow"):
 		var points = []
 		if Geometry2D.is_point_in_polygon(cow.global_position, shape):
+			cow.shader_mat.set_shader_parameter("is_outline_enabled", true)
 			match cow.cow_type:
 				Cow.CowType.PINK:
 					pink_count += 1

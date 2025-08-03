@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://b43s2losa3uh4"]
+[gd_scene load_steps=58 format=3 uid="uid://b43s2losa3uh4"]
 
 [ext_resource type="Shader" uid="uid://cvhqg07xlmubx" path="res://scenes/actors/cow.gdshader" id="1_ku1di"]
 [ext_resource type="Script" uid="uid://4p43ov0j06bu" path="res://scenes/actors/cow.gd" id="1_nv7pv"]
@@ -10,6 +10,12 @@
 shader = ExtResource("1_ku1di")
 shader_parameter/isOutlineEnabled = false
 shader_parameter/outlineColor = Color(0, 0, 0, 1)
+shader_parameter/isOutlineSquare = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ku1di"]
+shader = ExtResource("1_ku1di")
+shader_parameter/isOutlineEnabled = false
+shader_parameter/outlineColor = Color(1, 1, 1, 1)
 shader_parameter/isOutlineSquare = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6l28j"]
@@ -421,6 +427,7 @@ cow_type = 2
 move_speed = 20.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_ku1di")
 sprite_frames = SubResource("SpriteFrames_ociam")
 animation = &"cow_black_left"
 

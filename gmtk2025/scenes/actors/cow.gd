@@ -23,7 +23,12 @@ var _sine_t = 0.0
 var _sine_ampl = 0.0
 var _sine_freq = 0.0
 
-func _ready() -> void:
+@export var shader_mat:ShaderMaterial
+var cow_sprite
+
+func _ready():
+	cow_sprite = $AnimatedSprite2D
+	shader_mat = cow_sprite.material
 	cow_type = randi_range(1, 2)
 	add_to_group("cow")
 	
@@ -32,6 +37,7 @@ func _ready() -> void:
 	_sine_freq = randf_range(0.5, 3.0)
 
 func _process(delta: float) -> void:
+	shader_mat.set_shader_parameter("is_outline_enabled", true)
 	if velocity.length() > 0.01:
 		$AnimatedSprite2D.speed_scale = 1.0
 		$AnimatedSprite2D.play(_get_current_animation())
