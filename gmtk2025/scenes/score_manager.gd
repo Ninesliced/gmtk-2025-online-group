@@ -73,7 +73,6 @@ func apply_lasso_result(pink_count: int, black_count: int, lasso_type: Cow.CowTy
 		lose_point.emit()
 		$MissCowSound.play()
 	
-	print(final_point_diff)
 	
 	energy += final_point_diff 
 	score += final_point_diff 
