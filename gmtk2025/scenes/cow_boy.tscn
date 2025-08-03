@@ -4,9 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://c7qf6b7vq66m0" path="res://assets/crowboy_placeholder.png" id="2_dbklo"]
 [ext_resource type="Texture2D" uid="uid://bxf0s551juiks" path="res://assets/crowboy_placeholder_happy.png" id="3_v3xfg"]
 [ext_resource type="Texture2D" uid="uid://cyguuwkiwchpw" path="res://assets/crowboy_placeholder_sad.png" id="4_27ov1"]
-[ext_resource type="Texture2D" uid="uid://c3grlw87bjraa" path="res://assets/cowboy/cowboy_angry.png" id="5_crrm0"]
-[ext_resource type="Texture2D" uid="uid://d3tpjfej0g3im" path="res://assets/cowboy/cowboy_happy.png" id="6_vcl1j"]
-[ext_resource type="Texture2D" uid="uid://blewfy5t6hx4x" path="res://assets/cowboy/cowboy_neutral.png" id="7_0kkrg"]
+[ext_resource type="Texture2D" uid="uid://dcalqwyxxx0q3" path="res://scenes/Cowboy happy.png" id="6_5onuk"]
+[ext_resource type="Texture2D" uid="uid://b20003ijd678" path="res://scenes/Cowboy neutrual.png" id="7_usl85"]
 [ext_resource type="AudioStream" uid="uid://be5dtryxwgnff" path="res://assets/sounds/cowboy/happy/sfx_cowboy_happy_01.ogg" id="8_m86ej"]
 [ext_resource type="AudioStream" uid="uid://cvbtdx0xdweye" path="res://assets/sounds/cowboy/grunt/sfx_cowboy_grunt_01.ogg" id="8_r6r3w"]
 [ext_resource type="AudioStream" uid="uid://deqi4s4cp5wtj" path="res://assets/sounds/cowboy/grunt/sfx_cowboy_grunt_02.ogg" id="9_4l1cy"]
@@ -20,11 +19,14 @@
 [ext_resource type="AudioStream" uid="uid://cisw60ly4e6eh" path="res://assets/sounds/cowboy/score/sfx_cowboy_score_happy.ogg" id="13_3tg03"]
 [ext_resource type="Texture2D" uid="uid://c2xnth2nuuq44" path="res://assets/particle/sparkle.png" id="18_t6r20"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_t6r20"]
+load_path = "res://.godot/imported/Cowboy angry.png-526b96ab6d7e6421774650ec0a5df338.ctex"
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_v3xfg"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_crrm0")
+"texture": SubResource("CompressedTexture2D_t6r20")
 }],
 "loop": true,
 "name": &"angry",
@@ -32,7 +34,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_vcl1j")
+"texture": ExtResource("6_5onuk")
 }],
 "loop": true,
 "name": &"happy",
@@ -40,50 +42,12 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("7_0kkrg")
+"texture": ExtResource("7_usl85")
 }],
 "loop": true,
 "name": &"neutral",
 "speed": 5.0
 }]
-
-[sub_resource type="Animation" id="Animation_27ov1"]
-resource_name = "neutral"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Node2D/Sprite2D:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1.2, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Node2D/Sprite2D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 0,
-"values": []
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"values": []
-}
 
 [sub_resource type="Animation" id="Animation_jmkuw"]
 length = 0.193
@@ -139,6 +103,44 @@ tracks/1/keys = {
 "args": [],
 "method": &"set_sprite_neutral"
 }]
+}
+
+[sub_resource type="Animation" id="Animation_27ov1"]
+resource_name = "neutral"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.2, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D/Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
 }
 
 [sub_resource type="Animation" id="Animation_t6r20"]
