@@ -30,7 +30,12 @@ func _process(delta: float) -> void:
 		print("Game Over!")
 	_update_ui()
 
+@export var pink_represent: cow_rep
+@export var black_represent: cow_rep
+
 func apply_lasso_result(pink_count: int, black_count: int) -> void:
+	pink_represent._add_cows(0, pink_count)
+	black_represent._add_cows(black_count, 0)
 	var total = pink_count + black_count
 	if total > 0 and (pink_count == 0 or black_count == 0):
 		# all one color

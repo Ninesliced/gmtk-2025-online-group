@@ -6,9 +6,7 @@ class_name cow_rep
 var cow_prefab: PackedScene = load("res://scenes/actors/slave cow.tscn")
 @export var fence_type: String
 
-func _ready():
-	_add_cows(1, 4)
-	
+
 # bitch ass code im sorry
 func _add_cows(black_cows: int, pink_cows: int):
 	if fence_type == "black":

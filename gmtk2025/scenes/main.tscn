@@ -55,9 +55,11 @@ sources/1 = SubResource("TileSetAtlasSource_eb6dy")
 
 [node name="Lasso" parent="." instance=ExtResource("1_o5qli")]
 
-[node name="ScoreManager" type="Node2D" parent="."]
+[node name="ScoreManager" type="Node2D" parent="." node_paths=PackedStringArray("pink_represent", "black_represent")]
 script = ExtResource("2_jyhfs")
 drain_rate = 2.0
+pink_represent = NodePath("../pink fence")
+black_represent = NodePath("../black fence")
 
 [node name="CowBoy" parent="." instance=ExtResource("3_tefeu")]
 visible = false
@@ -122,3 +124,6 @@ texture = ExtResource("9_ya4ey")
 script = ExtResource("10_ya4ey")
 spawn_area = Rect2(423, 23, 470, 236)
 fence_type = "pink"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(239, 135)
