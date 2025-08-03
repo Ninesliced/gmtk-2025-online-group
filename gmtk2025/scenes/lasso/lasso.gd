@@ -19,12 +19,12 @@ func _ready():
 
 func _process(delta):
 	$StretchSound.volume_linear = move_toward(
-		$StretchSound.volume_linear, 0.0, delta*3
+		$StretchSound.volume_linear, 0.0, delta * 3
 	)
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		if _is_tracing: 
+		if _is_tracing:
 			_process_tracing(event.global_position)
 	if event is InputEventMouseButton:
 		if event.is_pressed():
@@ -39,25 +39,25 @@ func _start_tracing(pos: Vector2, button_index: int):
 	elif button_index == MOUSE_BUTTON_RIGHT:
 		_lasso_type = right_click_cow_type
 		line.texture = lasso_orange_texture
-	
+
 	$StretchSound.play()
-	
-	_is_tracing = true 
+
+	_is_tracing = true
 	_beginning_pos = pos
-	
+
 	line.clear_points()
 	line.add_point(pos)
 	line.closed = true
 
 func _end_tracing(pos: Vector2):
 	_is_tracing = false
-	
+
 	if pos:
 		line.closed = true
 		shape_closed.emit(PackedVector2Array(line.points), _lasso_type)
-	
+
 	$StretchSound.stop()
-	
+
 	_lasso_type = Cow.CowType.UNDEFINED
 	_beginning_pos = null
 	line.clear_points()
@@ -66,7 +66,7 @@ func _process_tracing(pos):
 	line.add_point(pos)
 	$StretchSound.volume_linear = 1.0
 
-func _on_shape_closed(shape: PackedVector2Array, cow_type: Cow.CowType) -> void:
+func _on_shape_closed(shape: PackedVector2Array, _lasso_type: Cow.CowType) -> void:
 	var pink_count = 0
 	var black_count = 0
 
@@ -79,5 +79,7 @@ func _on_shape_closed(shape: PackedVector2Array, cow_type: Cow.CowType) -> void:
 					black_count += 1
 			cow.capture()
 
-	print("Pink cows:", pink_count)
-	print("Black cows:", black_count)
+	print("Pink:", pink_count, "Black:", black_count)
+
+	var sm = $"../ScoreManager"
+	sm.apply_lasso_result(pink_count, black_count)
