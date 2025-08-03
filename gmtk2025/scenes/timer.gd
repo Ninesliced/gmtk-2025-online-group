@@ -11,7 +11,7 @@ signal timer_finished
 func _ready():
 	_update_display()
 	tick_timer.timeout.connect(_on_tick)
-	_set_timer(10)
+	_set_timer(120)
 	_timer_start()
 
 func _on_tick():

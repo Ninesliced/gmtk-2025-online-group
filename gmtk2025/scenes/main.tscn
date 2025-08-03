@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://cpv386wtlsucs"]
+[gd_scene load_steps=40 format=4 uid="uid://cpv386wtlsucs"]
 
 [ext_resource type="PackedScene" uid="uid://de7ib6xc58aex" path="res://scenes/lasso/lasso.tscn" id="1_o5qli"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_yq6so"]
@@ -29,6 +29,7 @@
 [ext_resource type="Script" uid="uid://dxrkx8sa3r50u" path="res://scenes/timer.gd" id="14_dp3eg"]
 [ext_resource type="Texture2D" uid="uid://b20003ijd678" path="res://scenes/Cowboy neutrual.png" id="16_fv21b"]
 [ext_resource type="Texture2D" uid="uid://dcalqwyxxx0q3" path="res://scenes/Cowboy happy.png" id="17_tel4y"]
+[ext_resource type="Script" uid="uid://b7f8if47h8un0" path="res://scenes/mooooooooooo.gd" id="30_fv21b"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_c6pm6"]
 random_pitch = 1.15
@@ -133,7 +134,7 @@ sprite_happy = ExtResource("17_tel4y")
 sprite_sad = SubResource("CompressedTexture2D_t6r20")
 
 [node name="CowManager" type="Node2D" parent="."]
-position = Vector2(240, -40)
+position = Vector2(240, -57)
 script = ExtResource("2_sugp2")
 target_cow_count = 200
 spawn_interval = 4.0
@@ -250,6 +251,11 @@ autoplay = true
 
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
 position = Vector2(240, 134)
+
+[node name="mooooooooooo" type="Node2D" parent="."]
+script = ExtResource("30_fv21b")
+
+[node name="MooPlayer" type="AudioStreamPlayer2D" parent="mooooooooooo"]
 
 [connection signal="gain_a_lot_point" from="ScoreManager" to="CowBoy" method="_on_score_manager_gain_a_lot_point"]
 [connection signal="gain_point" from="ScoreManager" to="CowBoy" method="_on_score_manager_gain_point"]
