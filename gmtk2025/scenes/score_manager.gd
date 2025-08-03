@@ -5,12 +5,12 @@ extends Node
 @export var base_gain: float = 2.5 # base... gain
 @export var exponent: float = 1.4 # for every extra correct cow in a batch
 @export var combo_multiplier: float = 1.5 
+var gain_multiplier = 1 # edit if we needed to balance
 @export var penalty_per_cow: float = 5.0
 @export var penalty_per_combo: float = 2.0
 var energy: float
 var combo: int = 0
 var score: int = 0
-var gain_multiplier = 1 # edit if we needed to balance
 var bar
 var combo_label: Label
 var score_label: Label
