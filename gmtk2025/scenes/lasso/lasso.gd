@@ -31,10 +31,11 @@ func _input(event: InputEvent) -> void:
 		if _is_tracing:
 			_process_tracing(event.global_position)
 	if event is InputEventMouseButton:
-		if event.is_pressed():
-			_start_tracing(event.global_position, event.button_index)
-		else:
-			_end_tracing(event.global_position)
+		if event.button_index == MOUSE_BUTTON_LEFT or event.button_index == MOUSE_BUTTON_RIGHT:
+			if event.is_pressed():
+				_start_tracing(event.global_position, event.button_index)
+			else:
+				_end_tracing(event.global_position)
 
 func _start_tracing(pos: Vector2, button_index: int):
 	if button_index == MOUSE_BUTTON_LEFT:
@@ -43,7 +44,7 @@ func _start_tracing(pos: Vector2, button_index: int):
 	elif button_index == MOUSE_BUTTON_RIGHT:
 		_lasso_type = right_click_cow_type
 		line.texture = lasso_orange_texture
-
+	
 	$StretchSound.play()
 
 	_is_tracing = true

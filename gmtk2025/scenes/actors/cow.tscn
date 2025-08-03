@@ -414,6 +414,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_ro7dt"]
 
 [node name="Cow" type="CharacterBody2D" groups=["cow"]]
+y_sort_enabled = true
 material = SubResource("ShaderMaterial_cswqi")
 script = ExtResource("1_nv7pv")
 cow_type = 2

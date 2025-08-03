@@ -41,6 +41,7 @@ func _process(delta: float) -> void:
 func apply_lasso_result(pink_count: int, black_count: int) -> void:
 	pink_represent._add_cows(0, pink_count)
 	black_represent._add_cows(black_count, 0)
+	
 	var total = pink_count + black_count
 	if total > 0 and (pink_count == 0 or black_count == 0):
 		# all one color
@@ -50,6 +51,7 @@ func apply_lasso_result(pink_count: int, black_count: int) -> void:
 		energy = min(energy + gain, max_energy)
 		print(String("%.1f" % gain), " energy (Combo", combo, ")")
 		gain_point.emit()
+		$CatchCowSound.play()
 	else:
 		# mixed or zero
 		var loss = total * penalty_per_cow + combo * penalty_per_combo
@@ -57,7 +59,8 @@ func apply_lasso_result(pink_count: int, black_count: int) -> void:
 		combo = 0
 		print(String("%.1f" % loss), " energy (combo reset)")
 		lose_point.emit()
-
+		$MissCowSound.play()
+	
 	_update_ui()
 
 func _update_ui() -> void:

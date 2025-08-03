@@ -10,6 +10,9 @@
 font = ExtResource("1_5p30d")
 
 [node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+process_priority = 3
+layer = 2
 script = ExtResource("1_hf471")
 
 [node name="Control" type="Control" parent="."]
@@ -19,6 +22,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
 layout_mode = 1
@@ -27,6 +31,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 color = Color(0, 0, 0, 0.552941)
 
 [node name="MarginContainer" type="MarginContainer" parent="Control"]
@@ -44,6 +49,7 @@ theme_override_constants/margin_bottom = 8
 [node name="Label" type="Label" parent="Control/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 0
+mouse_filter = 1
 text = "Paused"
 label_settings = SubResource("LabelSettings_dd7lr")
 horizontal_alignment = 1
@@ -55,6 +61,7 @@ size_flags_vertical = 4
 
 [node name="Continue" type="TextureButton" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 1
 texture_normal = ExtResource("2_dd7lr")
 texture_pressed = ExtResource("2_dd7lr")
 texture_hover = ExtResource("2_dd7lr")
@@ -62,6 +69,7 @@ texture_disabled = ExtResource("2_dd7lr")
 
 [node name="Retry" type="TextureButton" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 1
 texture_normal = ExtResource("3_n4ldv")
 texture_pressed = ExtResource("3_n4ldv")
 texture_hover = ExtResource("3_n4ldv")
@@ -69,6 +77,7 @@ texture_disabled = ExtResource("3_n4ldv")
 
 [node name="Exit" type="TextureButton" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 1
 texture_normal = ExtResource("4_idy5m")
 texture_pressed = ExtResource("4_idy5m")
 texture_hover = ExtResource("4_idy5m")

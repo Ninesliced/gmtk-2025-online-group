@@ -4,13 +4,13 @@ class_name CowManager
 @export var target_cow_count: int = 80
 @export var spawn_area_x_offset: float = 120
 @export var spawn_area_y_offset: float = 40
-@export var spawn_interval: float = 2.0 
-@export var spawn_batch_size: int = 4
+@export var spawn_interval: float = 0.6 
+@export var spawn_batch_size: int = 7
 
 var cow_prefab: PackedScene = load("res://scenes/actors/cow.tscn")
 var spawn_timer: Timer
-@export_range(0.0, 100.0) var spawned_cows_min_speed: int = 40
-@export_range(0.0, 100.0) var spawned_cows_max_speed: int = 70
+@export_range(0.0, 100.0) var spawned_cows_min_speed: int = 10
+@export_range(0.0, 100.0) var spawned_cows_max_speed: int = 20
 
 func _ready() -> void:
 	spawn_timer = Timer.new()

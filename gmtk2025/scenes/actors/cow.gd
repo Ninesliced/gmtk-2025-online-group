@@ -67,15 +67,15 @@ func _cow_type_to_str(_cow_type: CowType) -> String:
 	return ""
 
 func _velocity_to_direction():
-	var angle = fmod(velocity.angle() + TAU*2, TAU)
-	if TAU*(1.0/8) <= angle and angle <= TAU*(3.0/8):
-		return "down"
-	elif TAU*(3.0/8) <= angle and angle <= TAU*(5.0/8):
-		return "left"
-	elif TAU*(5.0/8) <= angle and angle <= TAU*(7.0/8):
-		return "up"
-	else:
-		return "right"
+	return "down"
+	#var angle = fmod(velocity.angle() + TAU*2, TAU)
+	#if TAU*(1.0/8) <= angle and angle <= TAU*(3.0/8):
+	#elif TAU*(3.0/8) <= angle and angle <= TAU*(5.0/8):
+		#return "left"
+	#elif TAU*(5.0/8) <= angle and angle <= TAU*(7.0/8):
+		#return "up"
+	#else:
+		#return "right"
 
 func _get_current_animation():
 	return "cow_" + _cow_type_to_str(cow_type) + "_" + _velocity_to_direction()
