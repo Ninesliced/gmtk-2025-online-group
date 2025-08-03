@@ -32,10 +32,10 @@ func set_ui(ui: Node, focus_node: Node = null, hide_current: bool = true) -> voi
 	_stack.append(ui)
 
 	if focus_node != null:
-		focus_node.grab_focus()
+		#focus_node.grab_focus()
 		_focus_stack.append(focus_node)
 	else:
-		ui.grab_focus()
+		#ui.grab_focus()
 		_focus_stack.append(ui)
 
 	_current_ui = ui

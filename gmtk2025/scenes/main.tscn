@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dqrmt123tpurr" path="res://scenes/left fence.png" id="8_choun"]
 [ext_resource type="Texture2D" uid="uid://drhywoohyia5a" path="res://icon.svg" id="8_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://dowr7md6n57pq" path="res://scenes/right fence.png" id="9_ya4ey"]
-[ext_resource type="Script" uid="uid://ca1eom4dsdr8f" path="res://scenes/cow_representation.gd" id="10_ya4ey"]
+[ext_resource type="Script" path="res://scenes/cow_representation.gd" id="10_ya4ey"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tipki"]
 texture = ExtResource("7_o6xl0")

@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://ref6w8t1503x"]
+[gd_scene load_steps=3 format=3 uid="uid://ref6w8t1503x"]
 
-[ext_resource type="Script" uid="uid://oxgovoxmk0wo" path="res://scenes/global/global.gd" id="1_ymfsq"]
+[ext_resource type="Script" uid="uid://oxgovoxmk0wo" path="res://scenes/global/global.gd" id="1_bhh4k"]
+[ext_resource type="PackedScene" uid="uid://bhagyric1kqq2" path="res://scenes/ui/menus/pause_menu.tscn" id="2_pht4f"]
 
 [node name="Global" type="Node2D"]
-script = ExtResource("1_ymfsq")
+process_mode = 3
+script = ExtResource("1_bhh4k")
+
+[node name="PauseMenu" parent="." instance=ExtResource("2_pht4f")]
+visible = false
