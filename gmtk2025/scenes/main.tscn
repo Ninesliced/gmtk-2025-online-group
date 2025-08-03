@@ -113,12 +113,12 @@ text = "ur skor: 0"
 position = Vector2(46, 135)
 texture = ExtResource("8_choun")
 script = ExtResource("10_ya4ey")
-spawn_area = Rect2(1, 32, 70, 240)
-fence_type = "pink"
+spawn_area = Rect2(3, 23, 58, 235)
+fence_type = "black"
 
 [node name="pink fence" type="Sprite2D" parent="."]
 position = Vector2(435, 135)
 texture = ExtResource("9_ya4ey")
-
-[node name="dafuq" type="Node2D" parent="."]
-position = Vector2(71, 243)
+script = ExtResource("10_ya4ey")
+spawn_area = Rect2(423, 23, 470, 236)
+fence_type = "pink"
