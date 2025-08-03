@@ -81,6 +81,7 @@ func _process_tracing(pos):
 func _on_shape_closed(shape: PackedVector2Array, _lasso_type: Cow.CowType) -> void:
 	var pink_count = 0
 	var black_count = 0
+	var captured_cows = []
 
 	for cow in get_tree().get_nodes_in_group("cow"):
 		if Geometry2D.is_point_in_polygon(cow.global_position, shape):
@@ -89,9 +90,10 @@ func _on_shape_closed(shape: PackedVector2Array, _lasso_type: Cow.CowType) -> vo
 					pink_count += 1
 				Cow.CowType.BLACK:
 					black_count += 1
+			captured_cows.append(cow)
 			cow.capture()
 
 	print("Pink:", pink_count, "Black:", black_count)
 
 	var sm = $"../ScoreManager"
-	sm.apply_lasso_result(pink_count, black_count)
+	sm.apply_lasso_result(pink_count, black_count, _lasso_type, captured_cows)

@@ -38,28 +38,36 @@ func _process(delta: float) -> void:
 @export var pink_represent: cow_rep
 @export var black_represent: cow_rep
 
-func apply_lasso_result(pink_count: int, black_count: int) -> void:
+func apply_lasso_result(pink_count: int, black_count: int, lasso_type: Cow.CowType, captured_cows) -> void:
 	pink_represent._add_cows(0, pink_count)
 	black_represent._add_cows(black_count, 0)
 	
 	var total = pink_count + black_count
-	if total > 0 and (pink_count == 0 or black_count == 0):
-		# all one color
-		combo += 1
-		var gain = base_gain * pow(total, exponent) + combo * combo_multiplier
-		score += gain * gain_multiplier
-		energy = min(energy + gain, max_energy)
-		print(String("%.1f" % gain), " energy (Combo", combo, ")")
+	var right_count = pink_count if lasso_type == Cow.CowType.PINK else black_count
+	var wrong_count = total - right_count
+	
+	var points_per_right_cow = 1 + right_count
+	var points_per_wrong_cow = 2*points_per_right_cow
+	
+	var final_point_diff = (
+		points_per_right_cow * right_count - 
+		points_per_wrong_cow * wrong_count
+	)
+	
+	if final_point_diff > 0:
 		gain_point.emit()
 		$CatchCowSound.play()
-	else:
-		# mixed or zero
-		var loss = total * penalty_per_cow + combo * penalty_per_combo
-		energy = max(energy - loss, 0)
-		combo = 0
-		print(String("%.1f" % loss), " energy (combo reset)")
+	elif final_point_diff < 0 or (final_point_diff == 0 and total > 0):
 		lose_point.emit()
 		$MissCowSound.play()
+	
+	print(final_point_diff)
+	
+	energy += final_point_diff * combo_multiplier
+	score += final_point_diff * combo_multiplier
+	
+	if energy > max_energy:
+		combo_multiplier += 1
 	
 	_update_ui()
 
