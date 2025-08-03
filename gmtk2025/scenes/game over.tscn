@@ -19,15 +19,18 @@ outline_size = 15
 outline_color = Color(0.580392, 0.352941, 0.305882, 1)
 
 [node name="GameOver" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_uf7vp")
 
 [node name="Panel" type="Panel" parent="."]
+process_mode = 3
 offset_left = 126.0
 offset_top = 37.0
 offset_right = 356.0
 offset_bottom = 226.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+process_mode = 3
 layout_mode = 0
 offset_left = 14.0
 offset_top = 7.0
@@ -36,12 +39,14 @@ offset_bottom = 181.0
 alignment = 1
 
 [node name="title" type="Label" parent="Panel/VBoxContainer"]
+process_mode = 3
 layout_mode = 2
 text = "GAME OVER"
 label_settings = SubResource("LabelSettings_vpbcb")
 horizontal_alignment = 1
 
 [node name="reason" type="Label" parent="Panel/VBoxContainer"]
+process_mode = 3
 layout_mode = 2
 text = "skill issue
 "
@@ -49,22 +54,26 @@ label_settings = SubResource("LabelSettings_w4cwl")
 horizontal_alignment = 1
 
 [node name="ur skor text" type="Label" parent="Panel/VBoxContainer"]
+process_mode = 3
 layout_mode = 2
 text = "ur skor is: "
 label_settings = SubResource("LabelSettings_w4cwl")
 horizontal_alignment = 1
 
 [node name="score num" type="Label" parent="Panel/VBoxContainer"]
+process_mode = 3
 layout_mode = 2
 text = "69"
 label_settings = SubResource("LabelSettings_uf7vp")
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+process_mode = 3
 layout_mode = 2
 alignment = 1
 
 [node name="Start" type="TextureButton" parent="Panel/VBoxContainer/HBoxContainer"]
+process_mode = 3
 layout_mode = 2
 texture_normal = ExtResource("2_vpbcb")
 texture_pressed = ExtResource("2_vpbcb")
@@ -72,6 +81,7 @@ texture_hover = ExtResource("2_vpbcb")
 texture_disabled = ExtResource("2_vpbcb")
 
 [node name="Exit" type="TextureButton" parent="Panel/VBoxContainer/HBoxContainer"]
+process_mode = 3
 layout_mode = 2
 texture_normal = ExtResource("3_kgv2q")
 texture_pressed = ExtResource("3_kgv2q")
@@ -79,6 +89,7 @@ texture_hover = ExtResource("3_kgv2q")
 texture_disabled = ExtResource("3_kgv2q")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+process_mode = 3
 
 [connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/Start" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/Exit" to="." method="_on_exit_pressed"]
