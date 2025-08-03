@@ -1,0 +1,267 @@
+[gd_scene load_steps=40 format=4 uid="uid://cpv386wtlsucs"]
+
+[ext_resource type="PackedScene" uid="uid://de7ib6xc58aex" path="res://scenes/lasso/lasso.tscn" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://ccwt5nc8y5bqh" path="res://scenes/main.gd" id="1_yq6so"]
+[ext_resource type="Script" uid="uid://bkofb2g1mnla7" path="res://scenes/score_manager.gd" id="2_jyhfs"]
+[ext_resource type="Script" uid="uid://cajwtdoeayq2u" path="res://scenes/cow_manager.gd" id="2_sugp2"]
+[ext_resource type="AudioStream" uid="uid://cjyo865wi0wy4" path="res://assets/sounds/catch_cow/sfx_sfx_catch_cow_01.ogg" id="3_2f3dj"]
+[ext_resource type="PackedScene" uid="uid://c3y7gw8a36iol" path="res://scenes/cow_boy.tscn" id="3_tefeu"]
+[ext_resource type="AudioStream" uid="uid://bhmq72fvqcmv6" path="res://assets/sounds/catch_cow/sfx_sfx_catch_cow_02.ogg" id="4_yq6so"]
+[ext_resource type="AudioStream" uid="uid://bg6wmwtofw21k" path="res://assets/sounds/catch_cow/sfx_sfx_catch_cow_03.ogg" id="5_fv21b"]
+[ext_resource type="PackedScene" uid="uid://dcsecleggohek" path="res://scenes/ui/hud/game_hud.tscn" id="5_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://dn06cvcwwuojn" path="res://scenes/fence.png" id="6_85g3d"]
+[ext_resource type="AudioStream" uid="uid://cba0keq3gix7f" path="res://assets/sounds/catch_cow/sfx_sfx_catch_cow_04.ogg" id="6_tel4y"]
+[ext_resource type="Texture2D" uid="uid://cgohblroooisk" path="res://assets/level/level_spritesheet.png" id="7_o6xl0"]
+[ext_resource type="AudioStream" uid="uid://bohsih5gyn2vu" path="res://assets/sounds/catch_cow/sfx_sfx_catch_cow_05.ogg" id="7_qkpxi"]
+[ext_resource type="AudioStream" uid="uid://4bea0eewql0j" path="res://assets/sounds/catch_none/sfx_catch_none_01.ogg" id="8_5q0nq"]
+[ext_resource type="Texture2D" uid="uid://dqrmt123tpurr" path="res://scenes/left fence.png" id="8_choun"]
+[ext_resource type="Texture2D" uid="uid://dmigm2riqdfyq" path="res://assets/ui/bar_empty.png" id="8_eb6dy"]
+[ext_resource type="AudioStream" uid="uid://xe7tc4o3rgg" path="res://assets/sounds/catch_none/sfx_catch_none_02.ogg" id="9_dgi5k"]
+[ext_resource type="Texture2D" uid="uid://bucgh7x4t8jp0" path="res://assets/ui/bar_filled.png" id="9_trceg"]
+[ext_resource type="Texture2D" uid="uid://dowr7md6n57pq" path="res://scenes/right fence.png" id="9_ya4ey"]
+[ext_resource type="AudioStream" uid="uid://dioxmtxpv2850" path="res://assets/sounds/catch_none/sfx_catch_none_03.ogg" id="10_j8jky"]
+[ext_resource type="FontFile" uid="uid://jetf8jjakm1d" path="res://assets/fonts/font.ttf" id="10_trceg"]
+[ext_resource type="Script" uid="uid://ca1eom4dsdr8f" path="res://scenes/cow_representation.gd" id="10_ya4ey"]
+[ext_resource type="AudioStream" uid="uid://d11s42tiaw07e" path="res://assets/sounds/catch_none/sfx_catch_none_04.ogg" id="11_kmb1v"]
+[ext_resource type="AudioStream" uid="uid://c1f630dxrb55j" path="res://assets/sounds/catch_none/sfx_catch_none_05.ogg" id="12_fuf3a"]
+[ext_resource type="AudioStream" uid="uid://d3gmv6nt2nor2" path="res://assets/sounds/catch_none/sfx_catch_none_06.ogg" id="13_pibwh"]
+[ext_resource type="AudioStream" uid="uid://b0mrh0tfgj61u" path="res://assets/musics/mus_gmtk_gameplay_2mn.ogg" id="14_a8y0u"]
+[ext_resource type="Script" uid="uid://dxrkx8sa3r50u" path="res://scenes/timer.gd" id="14_dp3eg"]
+[ext_resource type="Texture2D" uid="uid://b20003ijd678" path="res://scenes/Cowboy neutrual.png" id="16_fv21b"]
+[ext_resource type="Texture2D" uid="uid://dcalqwyxxx0q3" path="res://scenes/Cowboy happy.png" id="17_tel4y"]
+[ext_resource type="Script" path="res://scenes/mooooooooooo.gd" id="30_fv21b"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_c6pm6"]
+random_pitch = 1.15
+random_volume_offset_db = 1.02
+streams_count = 5
+stream_0/stream = ExtResource("3_2f3dj")
+stream_1/stream = ExtResource("4_yq6so")
+stream_2/stream = ExtResource("5_fv21b")
+stream_3/stream = ExtResource("6_tel4y")
+stream_4/stream = ExtResource("7_qkpxi")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_5he1u"]
+random_pitch = 1.15
+random_volume_offset_db = 1.02
+streams_count = 6
+stream_0/stream = ExtResource("8_5q0nq")
+stream_1/stream = ExtResource("9_dgi5k")
+stream_2/stream = ExtResource("10_j8jky")
+stream_3/stream = ExtResource("11_kmb1v")
+stream_4/stream = ExtResource("12_fuf3a")
+stream_5/stream = ExtResource("13_pibwh")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_t6r20"]
+load_path = "res://.godot/imported/Cowboy angry.png-526b96ab6d7e6421774650ec0a5df338.ctex"
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tipki"]
+texture = ExtResource("7_o6xl0")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+0:1/0/probability = 4.0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eb6dy"]
+texture = ExtResource("6_85g3d")
+0:0/0 = 0
+1:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_85g3d"]
+sources/0 = SubResource("TileSetAtlasSource_tipki")
+sources/1 = SubResource("TileSetAtlasSource_eb6dy")
+
+[sub_resource type="LabelSettings" id="LabelSettings_a8y0u"]
+font = ExtResource("10_trceg")
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jkv2x"]
+font = ExtResource("10_trceg")
+font_size = 32
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_trceg"]
+font = ExtResource("10_trceg")
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_yq6so")
+
+[node name="Lasso" parent="." instance=ExtResource("1_o5qli")]
+
+[node name="ScoreManager" type="Node2D" parent="." node_paths=PackedStringArray("pink_represent", "black_represent")]
+script = ExtResource("2_jyhfs")
+drain_rate = 2.0
+pink_represent = NodePath("../pink fence")
+black_represent = NodePath("../black fence")
+
+[node name="CatchCowSound" type="AudioStreamPlayer2D" parent="ScoreManager"]
+stream = SubResource("AudioStreamRandomizer_c6pm6")
+
+[node name="MissCowSound" type="AudioStreamPlayer2D" parent="ScoreManager"]
+stream = SubResource("AudioStreamRandomizer_5he1u")
+
+[node name="CowBoy" parent="." instance=ExtResource("3_tefeu")]
+position = Vector2(0, -29.61)
+sprite_neutral = ExtResource("16_fv21b")
+sprite_happy = ExtResource("17_tel4y")
+sprite_sad = SubResource("CompressedTexture2D_t6r20")
+
+[node name="CowManager" type="Node2D" parent="."]
+y_sort_enabled = true
+position = Vector2(240, -57)
+script = ExtResource("2_sugp2")
+target_cow_count = 200
+spawn_interval = 4.0
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+z_index = -100
+position = Vector2(48, -112)
+tile_map_data = PackedByteArray("AAD9/wcAAAAAAAEAAAD9/wgAAAAAAAAAAAD9/wkAAAAAAAEAAAD9/woAAAAAAAEAAAD9/wsAAAAAAAEAAAD9/wwAAAABAAEAAAD9/w0AAAABAAEAAAD9/w4AAAABAAEAAAD9/w8AAAAAAAEAAAD9/xAAAAAAAAAAAAD9/xEAAAAAAAAAAAD+/wcAAAAAAAEAAAD+/wgAAAABAAAAAAD+/wkAAAAAAAEAAAD+/woAAAAAAAEAAAD+/wsAAAAAAAEAAAD+/wwAAAABAAAAAAD+/w0AAAAAAAEAAAD+/w4AAAAAAAEAAAD+/w8AAAABAAAAAAD+/xAAAAAAAAEAAAD+/xEAAAAAAAEAAAD//wcAAAAAAAEAAAD//wgAAAAAAAAAAAD//wkAAAABAAAAAAD//woAAAABAAEAAAD//wsAAAAAAAEAAAD//wwAAAAAAAEAAAD//w0AAAABAAEAAAD//w4AAAAAAAEAAAD//w8AAAAAAAEAAAD//xAAAAABAAEAAAD//xEAAAAAAAEAAAAAAAcAAAABAAEAAAAAAAgAAAAAAAEAAAAAAAkAAAAAAAEAAAAAAAoAAAABAAAAAAAAAAsAAAAAAAEAAAAAAAwAAAAAAAEAAAAAAA0AAAAAAAEAAAAAAA4AAAAAAAAAAAAAAA8AAAABAAAAAAAAABAAAAAAAAEAAAAAABEAAAABAAAAAAABAAcAAAAAAAAAAAABAAgAAAAAAAEAAAABAAkAAAABAAEAAAABAAoAAAAAAAAAAAABAAsAAAAAAAAAAAABAAwAAAAAAAEAAAABAA0AAAAAAAEAAAABAA4AAAAAAAEAAAABAA8AAAAAAAEAAAABABAAAAAAAAEAAAABABEAAAAAAAEAAAACAAcAAAABAAAAAAACAAgAAAAAAAEAAAACAAkAAAAAAAAAAAACAAoAAAAAAAEAAAACAAsAAAABAAAAAAACAAwAAAAAAAEAAAACAA0AAAABAAAAAAACAA4AAAAAAAEAAAACAA8AAAAAAAEAAAACABAAAAAAAAEAAAACABEAAAAAAAEAAAADAAcAAAABAAEAAAADAAgAAAABAAAAAAADAAkAAAABAAEAAAADAAoAAAAAAAEAAAADAAsAAAAAAAEAAAADAAwAAAABAAEAAAADAA0AAAABAAEAAAADAA4AAAABAAAAAAADAA8AAAAAAAEAAAADABAAAAABAAAAAAADABEAAAABAAEAAAAEAAcAAAAAAAEAAAAEAAgAAAAAAAAAAAAEAAkAAAABAAEAAAAEAAoAAAAAAAEAAAAEAAsAAAAAAAEAAAAEAAwAAAAAAAEAAAAEAA0AAAAAAAEAAAAEAA4AAAAAAAEAAAAEAA8AAAAAAAAAAAAEABAAAAAAAAEAAAAEABEAAAAAAAEAAAAFAAcAAAABAAEAAAAFAAgAAAAAAAEAAAAFAAkAAAAAAAEAAAAFAAoAAAAAAAEAAAAFAAsAAAAAAAEAAAAFAAwAAAAAAAEAAAAFAA0AAAAAAAEAAAAFAA4AAAAAAAEAAAAFAA8AAAAAAAEAAAAFABAAAAAAAAEAAAAFABEAAAAAAAEAAAAGAAcAAAAAAAEAAAAGAAgAAAABAAAAAAAGAAkAAAAAAAEAAAAGAAoAAAAAAAEAAAAGAAsAAAAAAAAAAAAGAAwAAAAAAAEAAAAGAA0AAAABAAEAAAAGAA4AAAAAAAEAAAAGAA8AAAAAAAEAAAAGABAAAAAAAAEAAAAGABEAAAABAAAAAAAHAAcAAAAAAAAAAAAHAAgAAAAAAAAAAAAHAAkAAAAAAAAAAAAHAAoAAAAAAAEAAAAHAAsAAAAAAAEAAAAHAAwAAAABAAEAAAAHAA0AAAAAAAAAAAAHAA4AAAAAAAEAAAAHAA8AAAAAAAAAAAAHABAAAAABAAAAAAAHABEAAAABAAAAAAAIAAcAAAAAAAEAAAAIAAgAAAABAAEAAAAIAAkAAAAAAAEAAAAIAAoAAAAAAAEAAAAIAAsAAAAAAAEAAAAIAAwAAAAAAAEAAAAIAA0AAAAAAAEAAAAIAA4AAAAAAAEAAAAIAA8AAAAAAAEAAAAIABAAAAAAAAAAAAAIABEAAAABAAAAAAAJAAcAAAAAAAAAAAAJAAgAAAAAAAEAAAAJAAkAAAABAAAAAAAJAAoAAAAAAAEAAAAJAAsAAAAAAAEAAAAJAAwAAAAAAAEAAAAJAA0AAAAAAAEAAAAJAA4AAAAAAAAAAAAJAA8AAAAAAAEAAAAJABAAAAAAAAEAAAAJABEAAAAAAAEAAAAKAAcAAAABAAEAAAAKAAgAAAAAAAEAAAAKAAkAAAABAAAAAAAKAAoAAAAAAAEAAAAKAAsAAAABAAAAAAAKAAwAAAAAAAEAAAAKAA0AAAABAAAAAAAKAA4AAAAAAAAAAAAKAA8AAAAAAAEAAAAKABAAAAAAAAEAAAAKABEAAAAAAAEAAAALAAcAAAABAAEAAAALAAgAAAABAAAAAAALAAkAAAAAAAEAAAALAAoAAAAAAAEAAAALAAsAAAAAAAAAAAALAAwAAAAAAAEAAAALAA0AAAAAAAEAAAALAA4AAAABAAEAAAALAA8AAAAAAAAAAAALABAAAAAAAAEAAAALABEAAAAAAAEAAAAMAAcAAAABAAAAAAAMAAgAAAABAAAAAAAMAAkAAAABAAAAAAAMAAoAAAABAAAAAAAMAAsAAAAAAAEAAAAMAAwAAAABAAEAAAAMAA0AAAAAAAEAAAAMAA4AAAABAAEAAAAMAA8AAAAAAAEAAAAMABAAAAABAAAAAAAMABEAAAABAAAAAAANAAcAAAABAAAAAAANAAgAAAABAAAAAAANAAkAAAAAAAAAAAANAAoAAAAAAAAAAAANAAsAAAAAAAEAAAANAAwAAAAAAAEAAAANAA0AAAAAAAEAAAANAA4AAAAAAAAAAAANAA8AAAAAAAAAAAANABAAAAAAAAEAAAANABEAAAABAAEAAAAOAAcAAAABAAEAAAAOAAgAAAABAAEAAAAOAAkAAAAAAAEAAAAOAAoAAAAAAAEAAAAOAAsAAAAAAAEAAAAOAAwAAAAAAAEAAAAOAA0AAAAAAAAAAAAOAA4AAAABAAAAAAAOAA8AAAAAAAEAAAAOABAAAAAAAAEAAAAOABEAAAAAAAEAAAAPAAcAAAAAAAEAAAAPAAgAAAAAAAEAAAAPAAkAAAAAAAEAAAAPAAoAAAAAAAEAAAAPAAsAAAAAAAEAAAAPAAwAAAAAAAEAAAAPAA0AAAABAAEAAAAPAA4AAAABAAEAAAAPAA8AAAAAAAEAAAAPABAAAAABAAAAAAAPABEAAAAAAAEAAAAQAAcAAAAAAAEAAAAQAAgAAAAAAAEAAAAQAAkAAAAAAAEAAAAQAAoAAAAAAAEAAAAQAAsAAAAAAAEAAAAQAAwAAAABAAAAAAAQAA0AAAAAAAAAAAAQAA4AAAABAAAAAAAQAA8AAAAAAAEAAAAQABAAAAABAAAAAAAQABEAAAABAAEAAAARAAcAAAAAAAEAAAARAAgAAAAAAAEAAAARAAkAAAAAAAEAAAARAAoAAAAAAAEAAAARAAsAAAABAAAAAAARAAwAAAABAAAAAAARAA0AAAAAAAEAAAARAA4AAAAAAAAAAAARAA8AAAAAAAEAAAARABAAAAAAAAEAAAARABEAAAABAAAAAAASAAcAAAAAAAAAAAASAAgAAAAAAAEAAAASAAkAAAAAAAEAAAASAAoAAAABAAEAAAASAAsAAAABAAEAAAASAAwAAAAAAAEAAAASAA0AAAABAAAAAAASAA4AAAAAAAEAAAASAA8AAAAAAAEAAAASABAAAAAAAAEAAAASABEAAAAAAAEAAAATAAcAAAAAAAEAAAATAAgAAAAAAAEAAAATAAkAAAABAAEAAAATAAoAAAABAAAAAAATAAsAAAAAAAEAAAATAAwAAAABAAEAAAATAA0AAAABAAEAAAATAA4AAAABAAEAAAATAA8AAAAAAAEAAAATABAAAAAAAAEAAAATABEAAAAAAAAAAAAUAAcAAAAAAAEAAAAUAAgAAAABAAAAAAAUAAkAAAABAAEAAAAUAAoAAAAAAAEAAAAUAAsAAAAAAAEAAAAUAAwAAAAAAAEAAAAUAA0AAAABAAAAAAAUAA4AAAAAAAEAAAAUAA8AAAAAAAEAAAAUABAAAAAAAAEAAAAUABEAAAAAAAEAAAAVAAcAAAABAAAAAAAVAAgAAAAAAAEAAAAVAAkAAAAAAAEAAAAVAAoAAAABAAEAAAAVAAsAAAAAAAAAAAAVAAwAAAAAAAEAAAAVAA0AAAAAAAEAAAAVAA4AAAAAAAEAAAAVAA8AAAABAAEAAAAVABAAAAAAAAEAAAAVABEAAAAAAAEAAAAWAAcAAAAAAAEAAAAWAAgAAAAAAAEAAAAWAAkAAAAAAAEAAAAWAAoAAAAAAAEAAAAWAAsAAAAAAAEAAAAWAAwAAAAAAAEAAAAWAA0AAAABAAAAAAAWAA4AAAAAAAEAAAAWAA8AAAAAAAEAAAAWABAAAAAAAAEAAAAWABEAAAAAAAEAAAAXAAcAAAAAAAEAAAAXAAgAAAABAAAAAAAXAAkAAAABAAAAAAAXAAoAAAAAAAEAAAAXAAsAAAAAAAEAAAAXAAwAAAABAAEAAAAXAA0AAAABAAEAAAAXAA4AAAAAAAEAAAAXAA8AAAAAAAAAAAAXABAAAAAAAAEAAAAXABEAAAAAAAEAAAAYAAcAAAAAAAEAAAAYAAgAAAAAAAEAAAAYAAkAAAAAAAEAAAAYAAoAAAABAAAAAAAYAAsAAAAAAAEAAAAYAAwAAAAAAAEAAAAYAA0AAAABAAAAAAAYAA4AAAAAAAEAAAAYAA8AAAABAAEAAAAYABAAAAAAAAEAAAAYABEAAAABAAAAAAAZAAcAAAAAAAAAAAAZAAgAAAAAAAEAAAAZAAkAAAAAAAAAAAAZAAoAAAAAAAEAAAAZAAsAAAAAAAEAAAAZAAwAAAAAAAAAAAAZAA0AAAABAAAAAAAZAA4AAAAAAAAAAAAZAA8AAAABAAEAAAAZABAAAAAAAAAAAAAZABEAAAABAAEAAAAaAAcAAAAAAAEAAAAaAAgAAAAAAAEAAAAaAAkAAAABAAAAAAAaAAoAAAABAAAAAAAaAAsAAAABAAEAAAAaAAwAAAABAAEAAAAaAA0AAAAAAAAAAAAaAA4AAAABAAAAAAAaAA8AAAAAAAEAAAAaABAAAAABAAAAAAAaABEAAAABAAAAAAD9/xIAAAAAAAEAAAD9/xMAAAABAAAAAAD9/xQAAAAAAAEAAAD9/xUAAAABAAEAAAD9/xYAAAAAAAEAAAD9/xcAAAAAAAEAAAD9/xgAAAAAAAEAAAD9/xkAAAABAAEAAAD+/xIAAAAAAAEAAAD+/xMAAAAAAAEAAAD+/xQAAAAAAAEAAAD+/xUAAAAAAAEAAAD+/xYAAAABAAEAAAD+/xcAAAABAAAAAAD+/xgAAAAAAAEAAAD+/xkAAAABAAAAAAD//xIAAAAAAAEAAAD//xMAAAABAAAAAAD//xQAAAAAAAEAAAD//xUAAAAAAAEAAAD//xYAAAABAAAAAAD//xcAAAAAAAEAAAD//xgAAAAAAAEAAAD//xkAAAAAAAAAAAAAABIAAAAAAAEAAAAAABMAAAAAAAEAAAAAABQAAAABAAAAAAAAABUAAAAAAAAAAAAAABYAAAAAAAEAAAAAABcAAAAAAAEAAAAAABgAAAAAAAEAAAAAABkAAAAAAAAAAAABABIAAAAAAAEAAAABABMAAAAAAAEAAAABABQAAAABAAAAAAABABUAAAAAAAEAAAABABYAAAAAAAEAAAABABcAAAAAAAEAAAABABgAAAABAAEAAAABABkAAAABAAEAAAACABIAAAAAAAEAAAACABMAAAAAAAEAAAACABQAAAABAAEAAAACABUAAAAAAAAAAAACABYAAAAAAAAAAAACABcAAAABAAAAAAACABgAAAAAAAEAAAACABkAAAAAAAEAAAADABIAAAABAAAAAAADABMAAAAAAAEAAAADABQAAAAAAAEAAAADABUAAAAAAAEAAAADABYAAAABAAAAAAADABcAAAAAAAEAAAADABgAAAAAAAEAAAADABkAAAAAAAEAAAAEABIAAAAAAAEAAAAEABMAAAAAAAAAAAAEABQAAAABAAEAAAAEABUAAAAAAAAAAAAEABYAAAABAAAAAAAEABcAAAAAAAEAAAAEABgAAAAAAAEAAAAEABkAAAAAAAEAAAAFABIAAAAAAAEAAAAFABMAAAAAAAEAAAAFABQAAAAAAAEAAAAFABUAAAAAAAEAAAAFABYAAAAAAAEAAAAFABcAAAAAAAEAAAAFABgAAAAAAAEAAAAFABkAAAAAAAEAAAAGABIAAAAAAAAAAAAGABMAAAABAAAAAAAGABQAAAAAAAEAAAAGABUAAAAAAAEAAAAGABYAAAAAAAEAAAAGABcAAAAAAAAAAAAGABgAAAABAAAAAAAGABkAAAAAAAEAAAAHABIAAAAAAAEAAAAHABMAAAABAAEAAAAHABQAAAAAAAEAAAAHABUAAAAAAAEAAAAHABYAAAAAAAEAAAAHABcAAAAAAAEAAAAHABgAAAAAAAEAAAAHABkAAAAAAAEAAAAIABIAAAAAAAEAAAAIABMAAAAAAAEAAAAIABQAAAAAAAEAAAAIABUAAAAAAAEAAAAIABYAAAABAAEAAAAIABcAAAAAAAEAAAAIABgAAAAAAAAAAAAIABkAAAAAAAEAAAAJABIAAAABAAEAAAAJABMAAAAAAAEAAAAJABQAAAAAAAAAAAAJABUAAAAAAAAAAAAJABYAAAABAAAAAAAJABcAAAABAAAAAAAJABgAAAABAAEAAAAJABkAAAAAAAEAAAAKABIAAAAAAAAAAAAKABMAAAABAAAAAAAKABQAAAAAAAEAAAAKABUAAAAAAAEAAAAKABYAAAABAAEAAAAKABcAAAAAAAEAAAAKABgAAAAAAAEAAAAKABkAAAABAAEAAAALABIAAAABAAAAAAALABMAAAABAAEAAAALABQAAAAAAAEAAAALABUAAAAAAAAAAAALABYAAAAAAAEAAAALABcAAAABAAEAAAALABgAAAABAAEAAAALABkAAAAAAAEAAAAMABIAAAAAAAAAAAAMABMAAAAAAAEAAAAMABQAAAABAAEAAAAMABUAAAAAAAEAAAAMABYAAAABAAEAAAAMABcAAAAAAAEAAAAMABgAAAAAAAEAAAAMABkAAAAAAAEAAAANABIAAAAAAAEAAAANABMAAAAAAAEAAAANABQAAAAAAAEAAAANABUAAAAAAAEAAAANABYAAAAAAAEAAAANABcAAAABAAAAAAANABgAAAAAAAEAAAANABkAAAABAAEAAAAOABIAAAABAAAAAAAOABMAAAAAAAAAAAAOABQAAAABAAEAAAAOABUAAAABAAEAAAAOABYAAAAAAAEAAAAOABcAAAAAAAEAAAAOABgAAAABAAAAAAAOABkAAAAAAAEAAAAPABIAAAAAAAAAAAAPABMAAAAAAAEAAAAPABQAAAAAAAEAAAAPABUAAAAAAAEAAAAPABYAAAAAAAEAAAAPABcAAAAAAAEAAAAPABgAAAAAAAEAAAAPABkAAAAAAAEAAAAQABIAAAAAAAEAAAAQABMAAAABAAAAAAAQABQAAAAAAAEAAAAQABUAAAAAAAEAAAAQABYAAAAAAAEAAAAQABcAAAAAAAEAAAAQABgAAAAAAAEAAAAQABkAAAAAAAEAAAARABIAAAABAAAAAAARABMAAAAAAAEAAAARABQAAAAAAAEAAAARABUAAAAAAAEAAAARABYAAAAAAAEAAAARABcAAAAAAAEAAAARABgAAAAAAAEAAAARABkAAAAAAAEAAAASABIAAAAAAAEAAAASABMAAAABAAAAAAASABQAAAABAAAAAAASABUAAAAAAAEAAAASABYAAAAAAAEAAAASABcAAAAAAAEAAAASABgAAAABAAEAAAASABkAAAAAAAEAAAATABIAAAAAAAEAAAATABMAAAABAAEAAAATABQAAAABAAAAAAATABUAAAABAAEAAAATABYAAAAAAAEAAAATABcAAAAAAAEAAAATABgAAAAAAAEAAAATABkAAAABAAEAAAAUABIAAAAAAAAAAAAUABMAAAAAAAAAAAAUABQAAAAAAAEAAAAUABUAAAAAAAEAAAAUABYAAAAAAAEAAAAUABcAAAAAAAAAAAAUABgAAAABAAEAAAAUABkAAAAAAAEAAAAVABIAAAABAAAAAAAVABMAAAAAAAEAAAAVABQAAAAAAAAAAAAVABUAAAABAAAAAAAVABYAAAABAAAAAAAVABcAAAAAAAAAAAAVABgAAAAAAAEAAAAVABkAAAAAAAEAAAAWABIAAAAAAAEAAAAWABMAAAABAAEAAAAWABQAAAAAAAEAAAAWABUAAAAAAAEAAAAWABYAAAAAAAEAAAAWABcAAAAAAAEAAAAWABgAAAAAAAAAAAAWABkAAAAAAAEAAAAXABIAAAAAAAEAAAAXABMAAAABAAEAAAAXABQAAAAAAAAAAAAXABUAAAABAAEAAAAXABYAAAAAAAEAAAAXABcAAAAAAAEAAAAXABgAAAAAAAAAAAAXABkAAAAAAAEAAAAYABIAAAABAAAAAAAYABMAAAAAAAAAAAAYABQAAAAAAAEAAAAYABUAAAABAAEAAAAYABYAAAAAAAEAAAAYABcAAAAAAAAAAAAYABgAAAABAAEAAAAYABkAAAAAAAEAAAAZABIAAAABAAAAAAAZABMAAAAAAAEAAAAZABQAAAAAAAEAAAAZABUAAAAAAAEAAAAZABYAAAABAAAAAAAZABcAAAABAAEAAAAZABgAAAAAAAAAAAAZABkAAAAAAAEAAAAaABIAAAAAAAEAAAAaABMAAAAAAAAAAAAaABQAAAAAAAEAAAAaABUAAAAAAAEAAAAaABYAAAABAAEAAAAaABcAAAAAAAAAAAAaABgAAAAAAAEAAAAaABkAAAABAAAAAAA=")
+tile_set = SubResource("TileSet_85g3d")
+
+[node name="UI" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="GameHUD" parent="UI" instance=ExtResource("5_tbgi4")]
+offset_top = 16.0
+offset_bottom = 16.0
+metadata/_edit_use_anchors_ = true
+
+[node name="EnergyBar" type="TextureProgressBar" parent="UI/GameHUD"]
+layout_mode = 0
+offset_left = 156.0
+offset_top = 233.0
+offset_right = 326.0
+offset_bottom = 248.0
+value = 100.0
+nine_patch_stretch = true
+stretch_margin_left = 10
+stretch_margin_right = 10
+texture_under = ExtResource("8_eb6dy")
+texture_progress = ExtResource("9_trceg")
+metadata/_edit_use_anchors_ = true
+
+[node name="combo label" type="Label" parent="UI/GameHUD/EnergyBar"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -8.0
+offset_right = 169.0
+offset_bottom = 8.0
+text = "Cowmbo 0"
+label_settings = SubResource("LabelSettings_a8y0u")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="score label" type="Label" parent="UI/GameHUD/EnergyBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0941176
+anchor_right = -0.0941176
+offset_left = -69.0
+offset_top = -9.0
+offset_right = 11.0
+offset_bottom = 23.0
+text = "0000"
+label_settings = SubResource("LabelSettings_jkv2x")
+horizontal_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="time label" type="Label" parent="UI/GameHUD/EnergyBar"]
+layout_mode = 0
+offset_left = 184.0
+offset_top = -9.0
+offset_right = 239.0
+offset_bottom = 23.0
+text = "000"
+label_settings = SubResource("LabelSettings_jkv2x")
+horizontal_alignment = 2
+script = ExtResource("14_dp3eg")
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="UI/GameHUD/EnergyBar/time label"]
+
+[node name="Score" type="Label" parent="UI/GameHUD/EnergyBar"]
+layout_mode = 0
+offset_left = -69.0
+offset_top = -19.0
+offset_right = 11.0
+offset_bottom = -2.0
+text = "Scowre"
+label_settings = SubResource("LabelSettings_trceg")
+metadata/_edit_use_anchors_ = true
+
+[node name="Time" type="Label" parent="UI/GameHUD/EnergyBar"]
+layout_mode = 0
+offset_left = 159.0
+offset_top = -19.0
+offset_right = 239.0
+offset_bottom = -3.0
+text = "Time"
+label_settings = SubResource("LabelSettings_trceg")
+horizontal_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="black fence" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(46, 135)
+texture = ExtResource("8_choun")
+script = ExtResource("10_ya4ey")
+spawn_area = Rect2(3, 23, 58, 235)
+fence_type = "black"
+
+[node name="pink fence" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(435, 135)
+texture = ExtResource("9_ya4ey")
+script = ExtResource("10_ya4ey")
+spawn_area = Rect2(420, 23, 58, 220)
+fence_type = "pink"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(239, 135)
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(240, 134)
+stream = ExtResource("14_a8y0u")
+autoplay = true
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+position = Vector2(240, 134)
+
+[node name="mooooooooooo" type="Node2D" parent="."]
+script = ExtResource("30_fv21b")
+
+[node name="MooPlayer" type="AudioStreamPlayer2D" parent="mooooooooooo"]
+
+[connection signal="gain_a_lot_point" from="ScoreManager" to="CowBoy" method="_on_score_manager_gain_a_lot_point"]
+[connection signal="gain_point" from="ScoreManager" to="CowBoy" method="_on_score_manager_gain_point"]
+[connection signal="lose_point" from="ScoreManager" to="CowBoy" method="_on_score_manager_lose_point"]
+[connection signal="timer_finished" from="UI/GameHUD/EnergyBar/time label" to="ScoreManager" method="_on_time_label_timer_finished"]
+[connection signal="timeout" from="UI/GameHUD/EnergyBar/time label/Timer" to="UI/GameHUD/EnergyBar/time label" method="_on_timer_timeout"]

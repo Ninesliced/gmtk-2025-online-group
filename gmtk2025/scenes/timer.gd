@@ -51,3 +51,4 @@ func _timer_stop():
 	is_running = false
 	tick_timer.stop()
 	TransitionManager.change_scene(game_over)
+	Global.final_score = $"../../../../ScoreManager".score

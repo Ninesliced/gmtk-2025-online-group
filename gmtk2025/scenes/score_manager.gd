@@ -98,7 +98,3 @@ func _update_ui() -> void:
 	bar.value = energy
 	combo_label.text = "Cowmbo " + str(combo)
 	score_label.text = "%04d" % score
-
-
-func _on_time_label_timer_finished() -> void:
-	Global.final_score = score
