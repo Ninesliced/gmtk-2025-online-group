@@ -1,6 +1,6 @@
-[gd_scene load_steps=55 format=3 uid="uid://csqmgcp5tjfro"]
+[gd_scene load_steps=55 format=3 uid="uid://c2480l78uf26w"]
 
-[ext_resource type="Script" uid="uid://derd4ms0p2nri" path="res://scenes/actors/slave_cow.gd" id="1_841yg"]
+[ext_resource type="Script" path="res://scenes/actors/slave_cow.gd" id="1_841yg"]
 [ext_resource type="Texture2D" uid="uid://be5myyrd0d3vs" path="res://assets/cow/cow_black.png" id="2_ope62"]
 [ext_resource type="Texture2D" uid="uid://d0neifbgweoha" path="res://assets/cow/cow_orange.png" id="3_uk2gj"]
 [ext_resource type="Texture2D" uid="uid://bo55pj11ped1" path="res://assets/cow/cow_pink.png" id="4_nsh3x"]

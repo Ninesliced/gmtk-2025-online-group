@@ -19,6 +19,8 @@ var combo_label: Label
 var score_label: Label
 var time_label: Label
 
+var score_particle_prefab = load("res://scenes/ui/score_particle.tscn")
+
 func _ready() -> void:
 	bar = $"../UI/GameHUD/EnergyBar"
 	combo_label = $"../UI/GameHUD/EnergyBar/combo label"
@@ -29,10 +31,10 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	energy = max(energy - drain_rate * delta, 0)
-	if energy == 0:
-		# you lose logic
-		get_tree().paused = true
-		print("Game Over!")
+	#if energy == 0:
+		## you lose logic
+		#get_tree().paused = true
+		#print("Game Over!")
 	_update_ui()
 
 @export var pink_represent: cow_rep
@@ -46,13 +48,16 @@ func apply_lasso_result(pink_count: int, black_count: int, lasso_type: Cow.CowTy
 	var right_count = pink_count if lasso_type == Cow.CowType.PINK else black_count
 	var wrong_count = total - right_count
 	
-	var points_per_right_cow = 1 + right_count
-	var points_per_wrong_cow = 2*points_per_right_cow
+	var points_per_right_cow = (1 + right_count)
+	var points_per_wrong_cow = (2 * points_per_right_cow)
 	
 	var final_point_diff = (
 		points_per_right_cow * right_count - 
 		points_per_wrong_cow * wrong_count
 	)
+	if final_point_diff > 0:
+		points_per_right_cow *= combo_multiplier 
+		points_per_wrong_cow *= combo_multiplier 
 	
 	if final_point_diff > 0:
 		gain_point.emit()
@@ -63,11 +68,22 @@ func apply_lasso_result(pink_count: int, black_count: int, lasso_type: Cow.CowTy
 	
 	print(final_point_diff)
 	
-	energy += final_point_diff * combo_multiplier
-	score += final_point_diff * combo_multiplier
+	energy += final_point_diff 
+	score += final_point_diff 
+	score = max(0, score)
 	
 	if energy > max_energy:
 		combo_multiplier += 1
+	
+	for cow in captured_cows:
+		var score_particle = score_particle_prefab.instantiate()
+		if cow.cow_type == lasso_type:
+			score_particle.score = int(points_per_right_cow)
+		else:
+			score_particle.score = -int(points_per_wrong_cow)
+		add_child(score_particle)
+		score_particle.global_position = cow.global_position
+		score_particle.position.x -= 32
 	
 	_update_ui()
 
