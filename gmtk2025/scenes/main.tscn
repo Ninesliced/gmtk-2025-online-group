@@ -234,7 +234,7 @@ fence_type = "black"
 position = Vector2(435, 135)
 texture = ExtResource("9_ya4ey")
 script = ExtResource("10_ya4ey")
-spawn_area = Rect2(410, 23, 58, 235)
+spawn_area = Rect2(420, 23, 58, 220)
 fence_type = "pink"
 
 [node name="Camera2D" type="Camera2D" parent="."]
