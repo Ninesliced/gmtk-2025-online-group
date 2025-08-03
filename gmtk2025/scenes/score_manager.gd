@@ -5,7 +5,7 @@ signal gain_a_lot_point
 signal lose_point
 
 @export var max_energy: float = 100.0
-@export var drain_rate: float = 2000.0 # drain per sec
+@export var drain_rate: float = 5.0 # drain per sec
 @export var base_gain: float = 2.5 # base... gain
 @export var exponent: float = 1.4 # for every extra correct cow in a batch
 @export var combo_multiplier: float = 1.5 
