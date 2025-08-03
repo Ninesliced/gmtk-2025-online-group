@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://cpv386wtlsucs"]
+[gd_scene load_steps=38 format=4 uid="uid://cpv386wtlsucs"]
 
 [ext_resource type="PackedScene" uid="uid://de7ib6xc58aex" path="res://scenes/lasso/lasso.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://ccwt5nc8y5bqh" path="res://scenes/main.gd" id="1_yq6so"]
@@ -29,7 +29,6 @@
 [ext_resource type="AudioStream" uid="uid://c1f630dxrb55j" path="res://assets/sounds/catch_none/sfx_catch_none_05.ogg" id="12_fuf3a"]
 [ext_resource type="AudioStream" uid="uid://d3gmv6nt2nor2" path="res://assets/sounds/catch_none/sfx_catch_none_06.ogg" id="13_pibwh"]
 [ext_resource type="AudioStream" uid="uid://b0mrh0tfgj61u" path="res://assets/musics/mus_gmtk_gameplay_2mn.ogg" id="14_a8y0u"]
-[ext_resource type="AudioStream" uid="uid://cwmtgkbldk45w" path="res://assets/sounds/ui/sfx_ui_menuclose.ogg" id="30_fv21b"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_c6pm6"]
 random_pitch = 1.15
@@ -236,11 +235,6 @@ position = Vector2(239, 135)
 [node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(240, 134)
 stream = ExtResource("14_a8y0u")
-autoplay = true
-
-[node name="StartSound" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(240, 134)
-stream = ExtResource("30_fv21b")
 autoplay = true
 
 [node name="AudioListener2D" type="AudioListener2D" parent="."]

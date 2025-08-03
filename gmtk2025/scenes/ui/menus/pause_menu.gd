@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+var main = load("res://scenes/main.tscn")
+var main_menu = load("res://scenes/ui/menus/main_menu.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -16,9 +18,12 @@ func _on_continue_pressed() -> void:
 
 
 func _on_retry_pressed() -> void:
-	get_tree().reload_current_scene()
+	#get_tree().reload_current_scene()
+	Global.unpause()
+	TransitionManager.change_scene(main)
 
 
 
 func _on_exit_pressed() -> void:
-	Global.main_menu()
+	Global.unpause()
+	TransitionManager.change_scene(main_menu)

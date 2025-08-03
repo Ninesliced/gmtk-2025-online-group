@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dx2iw8yrrnnxl"]
+[gd_scene load_steps=12 format=3 uid="uid://dx2iw8yrrnnxl"]
 
 [ext_resource type="Script" uid="uid://dfhugii2gimbs" path="res://scenes/ui/menus/main_menu.gd" id="1_y4aia"]
 [ext_resource type="FontFile" uid="uid://jetf8jjakm1d" path="res://assets/fonts/font.ttf" id="2_oj1oe"]
@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://g8nwpq4tjr72" path="res://assets/ui/button_start.png" id="5_y4aia"]
 [ext_resource type="Script" uid="uid://bjvawwoxf8x4d" path="res://scenes/ui/menus/clouds.gd" id="5_ykpw6"]
 [ext_resource type="AudioStream" uid="uid://cgp00ai0ckr5r" path="res://assets/musics/mus_gmtk_menu_lp.ogg" id="7_y4aia"]
-[ext_resource type="AudioStream" uid="uid://ce8ehsmgukiph" path="res://assets/sounds/ui/sfx_ui_gamestart.ogg" id="11_h4dpu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_y4aia"]
 font = ExtResource("2_oj1oe")
@@ -122,9 +121,6 @@ offset_bottom = 32.0
 grow_horizontal = 2
 text = "Made for GMTK Game jam 2025"
 label_settings = SubResource("LabelSettings_y4aia")
-
-[node name="TransitionSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("11_h4dpu")
 
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Start" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
