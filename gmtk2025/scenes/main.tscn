@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://cpv386wtlsucs"]
+[gd_scene load_steps=15 format=4 uid="uid://cpv386wtlsucs"]
 
 [ext_resource type="PackedScene" uid="uid://de7ib6xc58aex" path="res://scenes/lasso/lasso.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://bkofb2g1mnla7" path="res://scenes/score_manager.gd" id="2_jyhfs"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dqrmt123tpurr" path="res://scenes/left fence.png" id="8_choun"]
 [ext_resource type="Texture2D" uid="uid://drhywoohyia5a" path="res://icon.svg" id="8_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://dowr7md6n57pq" path="res://scenes/right fence.png" id="9_ya4ey"]
+[ext_resource type="Script" uid="uid://ca1eom4dsdr8f" path="res://scenes/cow_representation.gd" id="10_ya4ey"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tipki"]
 texture = ExtResource("7_o6xl0")
@@ -54,9 +55,11 @@ sources/1 = SubResource("TileSetAtlasSource_eb6dy")
 
 [node name="Lasso" parent="." instance=ExtResource("1_o5qli")]
 
-[node name="ScoreManager" type="Node2D" parent="."]
+[node name="ScoreManager" type="Node2D" parent="." node_paths=PackedStringArray("pink_represent", "black_represent")]
 script = ExtResource("2_jyhfs")
 drain_rate = 2.0
+pink_represent = NodePath("../pink fence")
+black_represent = NodePath("../black fence")
 
 [node name="CowBoy" parent="." instance=ExtResource("3_tefeu")]
 visible = false
@@ -108,10 +111,19 @@ offset_bottom = 154.249
 scale = Vector2(0.411277, 3.21871)
 text = "ur skor: 0"
 
-[node name="LeftFence" type="Sprite2D" parent="."]
+[node name="black fence" type="Sprite2D" parent="."]
 position = Vector2(46, 135)
 texture = ExtResource("8_choun")
+script = ExtResource("10_ya4ey")
+spawn_area = Rect2(3, 23, 58, 235)
+fence_type = "black"
 
-[node name="RightFence" type="Sprite2D" parent="."]
+[node name="pink fence" type="Sprite2D" parent="."]
 position = Vector2(435, 135)
 texture = ExtResource("9_ya4ey")
+script = ExtResource("10_ya4ey")
+spawn_area = Rect2(423, 23, 470, 236)
+fence_type = "pink"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(239, 135)
