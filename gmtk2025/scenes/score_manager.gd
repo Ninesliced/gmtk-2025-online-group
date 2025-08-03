@@ -5,7 +5,7 @@ signal gain_a_lot_point
 signal lose_point
 
 @export var max_energy: float = 100.0
-@export var drain_rate: float = 5.0 # drain per sec
+@export var drain_rate: float = 2000.0 # drain per sec
 @export var base_gain: float = 2.5 # base... gain
 @export var exponent: float = 1.4 # for every extra correct cow in a batch
 @export var combo_multiplier: float = 1.5 
@@ -32,10 +32,11 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	energy = max(energy - drain_rate * delta, 0)
-	#if energy == 0:
-		## you lose logic
-		#get_tree().paused = true
-		#print("Game Over!")
+	if energy == 0:
+		# you lose logic
+		combo = 0
+		get_tree().paused = true
+		print("Game Over!")
 	_update_ui()
 
 @export var pink_represent: cow_rep
@@ -97,3 +98,7 @@ func _update_ui() -> void:
 	bar.value = energy
 	combo_label.text = "Cowmbo " + str(combo)
 	score_label.text = "%04d" % score
+
+
+func _on_time_label_timer_finished() -> void:
+	Global.final_score = score

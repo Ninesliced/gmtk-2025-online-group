@@ -1,0 +1,123 @@
+[gd_scene load_steps=13 format=3 uid="uid://crdatshhkiqr5"]
+
+[ext_resource type="Script" uid="uid://cby5sxdt7g7ov" path="res://scenes/ui/menus/game_over_menu.gd" id="1_jtxd4"]
+[ext_resource type="AudioStream" uid="uid://bik5aqocfvi3y" path="res://assets/musics/mus_gmtk_endscreen_lp.ogg" id="2_f7lfm"]
+[ext_resource type="AudioStream" uid="uid://boufjw2a6puml" path="res://assets/sounds/cowboy/score/sfx_cowboy_score_veryhappy.ogg" id="3_j3uy4"]
+[ext_resource type="Texture2D" uid="uid://qh61w2n2t8i5" path="res://assets/ui/main_menu_sky.png" id="3_pgjeq"]
+[ext_resource type="Texture2D" uid="uid://c767hbqgdlgth" path="res://assets/ui/main_menu_clouds.png" id="4_1cdxq"]
+[ext_resource type="Script" uid="uid://bjvawwoxf8x4d" path="res://scenes/ui/menus/clouds.gd" id="5_58ieo"]
+[ext_resource type="Texture2D" uid="uid://conrxk6h466g2" path="res://assets/ui/main_menu_bg.png" id="6_0u67i"]
+[ext_resource type="Texture2D" uid="uid://68ay1chc5tjn" path="res://assets/ui/button_retry.png" id="8_j3uy4"]
+[ext_resource type="Texture2D" uid="uid://c8jd2wkqquu47" path="res://assets/ui/button_exit.png" id="9_wlbn5"]
+[ext_resource type="FontFile" uid="uid://jetf8jjakm1d" path="res://assets/fonts/font.ttf" id="10_101vb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jtxd4"]
+font = ExtResource("10_101vb")
+font_size = 32
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_j3uy4"]
+font = ExtResource("10_101vb")
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="GameOverMenu" type="CanvasLayer"]
+script = ExtResource("1_jtxd4")
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_f7lfm")
+autoplay = true
+
+[node name="YeeHaw" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_j3uy4")
+autoplay = true
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sky" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_pgjeq")
+
+[node name="Clouds" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_1cdxq")
+script = ExtResource("5_58ieo")
+
+[node name="Hills3" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_0u67i")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Yee haw!"
+label_settings = SubResource("LabelSettings_jtxd4")
+horizontal_alignment = 1
+
+[node name="Score" type="Label" parent="Control/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Score: "
+label_settings = SubResource("LabelSettings_j3uy4")
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="Start" type="TextureButton" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("8_j3uy4")
+texture_pressed = ExtResource("8_j3uy4")
+texture_hover = ExtResource("8_j3uy4")
+texture_disabled = ExtResource("8_j3uy4")
+
+[node name="Exit" type="TextureButton" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("9_wlbn5")
+texture_pressed = ExtResource("9_wlbn5")
+texture_hover = ExtResource("9_wlbn5")
+texture_disabled = ExtResource("9_wlbn5")
+
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

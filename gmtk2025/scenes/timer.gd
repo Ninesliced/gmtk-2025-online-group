@@ -3,6 +3,8 @@ class_name TimerLabel
 
 @onready var tick_timer: Timer = $Timer
 
+var game_over = load("res://scenes/ui/menus/game_over_menu.tscn")
+
 var time_seconds: int = 0
 var is_running: bool = false
 
@@ -18,7 +20,7 @@ func _on_tick():
 	if is_running:
 		time_seconds -= 1
 		_update_display()
-
+		
 		if time_seconds <= 0:
 			print("GAME IS OVER") # TODO: game over screen and shit
 			_timer_stop()
@@ -29,7 +31,7 @@ func _on_tick():
 func _update_display():
 	var minutes = time_seconds / 60
 	var seconds = time_seconds % 60
-	text = "%02d:%02d" % [minutes, seconds]
+	text = "%01d:%02d" % [minutes, seconds]
 
 # timar api heer if we expanded 
 
@@ -48,3 +50,4 @@ func _get_timer_time() -> int:
 func _timer_stop():
 	is_running = false
 	tick_timer.stop()
+	TransitionManager.change_scene(game_over)
