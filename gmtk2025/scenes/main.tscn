@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://cpv386wtlsucs"]
+[gd_scene load_steps=21 format=4 uid="uid://cpv386wtlsucs"]
 
 [ext_resource type="PackedScene" uid="uid://de7ib6xc58aex" path="res://scenes/lasso/lasso.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://bkofb2g1mnla7" path="res://scenes/score_manager.gd" id="2_jyhfs"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dowr7md6n57pq" path="res://scenes/right fence.png" id="9_ya4ey"]
 [ext_resource type="FontFile" uid="uid://jetf8jjakm1d" path="res://assets/fonts/font.ttf" id="10_trceg"]
 [ext_resource type="Script" path="res://scenes/cow_representation.gd" id="10_ya4ey"]
+[ext_resource type="AudioStream" uid="uid://b0mrh0tfgj61u" path="res://assets/musics/mus_gmtk_gameplay_2mn.ogg" id="14_a8y0u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tipki"]
 texture = ExtResource("7_o6xl0")
@@ -117,12 +118,13 @@ texture_progress = ExtResource("9_trceg")
 
 [node name="combo label" type="Label" parent="UI/GameHUD/EnergyBar"]
 layout_mode = 0
-offset_left = 47.0
-offset_top = -17.0
-offset_right = 111.0
-offset_bottom = -1.0
-text = "Combo: 0"
+offset_left = 2.0
+offset_top = -8.0
+offset_right = 169.0
+offset_bottom = 8.0
+text = "Cowmbo 0"
 label_settings = SubResource("LabelSettings_a8y0u")
+horizontal_alignment = 1
 
 [node name="score label" type="Label" parent="UI/GameHUD/EnergyBar"]
 layout_mode = 0
@@ -149,7 +151,7 @@ offset_left = -69.0
 offset_top = -19.0
 offset_right = 11.0
 offset_bottom = -2.0
-text = "Score"
+text = "Scowre"
 label_settings = SubResource("LabelSettings_trceg")
 
 [node name="Time" type="Label" parent="UI/GameHUD/EnergyBar"]
@@ -178,3 +180,11 @@ fence_type = "pink"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(239, 135)
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(240, 134)
+stream = ExtResource("14_a8y0u")
+autoplay = true
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+position = Vector2(240, 134)

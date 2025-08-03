@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GMTK 2025"
-run/main_scene="uid://cpv386wtlsucs"
+run/main_scene="uid://dx2iw8yrrnnxl"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 

@@ -1,9 +1,10 @@
 extends CanvasLayer
 @onready var animation_player = $AnimationPlayer
 
-func change_scene(packed_scene: PackedScene, start="fade", end=null) -> void:
+func change_scene(packed_scene: PackedScene, start="circle_gradient", end=null) -> void:
 	animation_player.play(start)
-
+	
+	await get_tree().create_timer(1.0).timeout
 	get_tree().change_scene_to_packed(packed_scene)
 
 	await get_tree().process_frame

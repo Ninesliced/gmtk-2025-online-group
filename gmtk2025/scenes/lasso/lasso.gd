@@ -10,6 +10,7 @@ signal shape_closed(shape: PackedVector2Array, cow_type: Cow.CowType)
 
 @onready var line: Line2D = $Line2D
 
+var _last_trace_point: Vector2
 var _is_tracing := false
 var _beginning_pos = null
 var _lasso_type: Cow.CowType
@@ -51,6 +52,8 @@ func _start_tracing(pos: Vector2, button_index: int):
 	line.clear_points()
 	line.add_point(pos)
 	line.closed = true
+	
+	_last_trace_point = pos
 
 func _end_tracing(pos: Vector2):
 	_is_tracing = false
@@ -67,7 +70,12 @@ func _end_tracing(pos: Vector2):
 
 func _process_tracing(pos):
 	line.add_point(pos)
-	$StretchSound.volume_linear = 1.0
+	
+	var diff = ((_last_trace_point - pos).length())
+	$StretchSound.volume_linear = clamp(diff / 10, 0.4, 1.5)
+	$StretchSound.pitch_scale = clamp(diff / 4, 0.8, 2.5)
+	
+	_last_trace_point = pos
 
 func _on_shape_closed(shape: PackedVector2Array, _lasso_type: Cow.CowType) -> void:
 	var pink_count = 0

@@ -1,7 +1,7 @@
 extends Node2D
 class_name CowManager
 
-@export var target_cow_count: int = 20
+@export var target_cow_count: int = 80
 @export var spawn_area_x_offset: float = 120
 @export var spawn_area_y_offset: float = 40
 @export var spawn_interval: float = 2.0 

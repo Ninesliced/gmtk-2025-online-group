@@ -14,7 +14,9 @@ func pause():
 func unpause():
 	PauseManager.unpause()
 	UIManager.close_ui()
-	
+
+func main_menu():
+	UIManager.set_ui($MainMenu)
 
 func cow_type_to_color(cow_type: Cow.CowType) -> Color:
 	match cow_type:

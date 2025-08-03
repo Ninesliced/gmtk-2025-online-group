@@ -4,7 +4,6 @@ var is_in_pause: bool = false
 var _pause_priority : int = 0
 
 func pause(pause_priority: int = 0) -> void:
-	print("PAUSE")
 	if pause_priority < _pause_priority:
 		return
 	if not is_in_pause:
@@ -13,8 +12,6 @@ func pause(pause_priority: int = 0) -> void:
 		_pause_priority = pause_priority
 		
 func unpause(priority: int = 0) -> void:
-	print("UNPAUSE")
-	
 	if priority < _pause_priority:
 		return
 	if is_in_pause:
