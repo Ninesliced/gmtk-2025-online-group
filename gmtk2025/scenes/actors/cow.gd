@@ -19,9 +19,17 @@ var target_position: Vector2
 var waiting: bool = true
 var timer: float = 0.0
 
+var _sine_t = 0.0
+var _sine_ampl = 0.0
+var _sine_freq = 0.0
+
 func _ready() -> void:
 	cow_type = randi_range(1, 2)
 	add_to_group("cow")
+	
+	_sine_t = randf_range(0, TAU)
+	_sine_ampl = randf_range(5.0, 30.0)
+	_sine_freq = randf_range(0.5, 3.0)
 
 func _process(delta: float) -> void:
 	if velocity.length() > 0.01:
@@ -31,7 +39,21 @@ func _process(delta: float) -> void:
 		$AnimatedSprite2D.speed_scale = 0.0
 
 func _physics_process(delta: float) -> void:
-	velocity = Vector2.UP * move_speed
+	_sine_t += delta * _sine_freq
+	
+	velocity = Vector2.DOWN * move_speed
+	velocity.x = sin(_sine_t) * _sine_ampl
+	
+	var min_x = cow_manager.global_position.x - cow_manager.spawn_area_x_offset
+	var max_x = cow_manager.global_position.x + cow_manager.spawn_area_x_offset
+	
+	if global_position.x < min_x:
+		velocity.x = 0
+		global_position.x = min_x + 1
+	if global_position.x > max_x:
+		velocity.x = 0
+		global_position.x = max_x - 1
+	
 	move_and_slide()
 
 func _cow_type_to_str(_cow_type: CowType) -> String:

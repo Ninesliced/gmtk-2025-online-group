@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://cpv386wtlsucs"]
+[gd_scene load_steps=20 format=4 uid="uid://cpv386wtlsucs"]
 
 [ext_resource type="PackedScene" uid="uid://de7ib6xc58aex" path="res://scenes/lasso/lasso.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://bkofb2g1mnla7" path="res://scenes/score_manager.gd" id="2_jyhfs"]
@@ -8,8 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://dn06cvcwwuojn" path="res://scenes/fence.png" id="6_85g3d"]
 [ext_resource type="Texture2D" uid="uid://cgohblroooisk" path="res://assets/level/level_spritesheet.png" id="7_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://dqrmt123tpurr" path="res://scenes/left fence.png" id="8_choun"]
-[ext_resource type="Texture2D" uid="uid://drhywoohyia5a" path="res://icon.svg" id="8_ya4ey"]
+[ext_resource type="Texture2D" uid="uid://dmigm2riqdfyq" path="res://assets/ui/bar_empty.png" id="8_eb6dy"]
+[ext_resource type="Texture2D" uid="uid://bucgh7x4t8jp0" path="res://assets/ui/bar_filled.png" id="9_trceg"]
 [ext_resource type="Texture2D" uid="uid://dowr7md6n57pq" path="res://scenes/right fence.png" id="9_ya4ey"]
+[ext_resource type="FontFile" uid="uid://jetf8jjakm1d" path="res://assets/fonts/font.ttf" id="10_trceg"]
 [ext_resource type="Script" path="res://scenes/cow_representation.gd" id="10_ya4ey"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tipki"]
@@ -51,6 +53,22 @@ texture = ExtResource("6_85g3d")
 sources/0 = SubResource("TileSetAtlasSource_tipki")
 sources/1 = SubResource("TileSetAtlasSource_eb6dy")
 
+[sub_resource type="LabelSettings" id="LabelSettings_a8y0u"]
+font = ExtResource("10_trceg")
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jkv2x"]
+font = ExtResource("10_trceg")
+font_size = 32
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_trceg"]
+font = ExtResource("10_trceg")
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
 [node name="Main" type="Node2D"]
 
 [node name="Lasso" parent="." instance=ExtResource("1_o5qli")]
@@ -65,7 +83,7 @@ black_represent = NodePath("../black fence")
 visible = false
 
 [node name="CowManager" type="Node2D" parent="."]
-position = Vector2(240, 292)
+position = Vector2(240, -40)
 script = ExtResource("2_sugp2")
 target_cow_count = 200
 spawn_interval = 4.0
@@ -84,32 +102,65 @@ offset_top = 16.0
 offset_bottom = 16.0
 metadata/_edit_use_anchors_ = true
 
-[node name="EnergyBar" type="TextureProgressBar" parent="UI"]
-offset_left = 127.0
-offset_top = 13.0
-offset_right = 255.0
-offset_bottom = 141.0
-scale = Vector2(1.68, 0.160001)
+[node name="EnergyBar" type="TextureProgressBar" parent="UI/GameHUD"]
+layout_mode = 0
+offset_left = 156.0
+offset_top = 233.0
+offset_right = 326.0
+offset_bottom = 248.0
 value = 100.0
-texture_progress = ExtResource("8_ya4ey")
+nine_patch_stretch = true
+stretch_margin_left = 10
+stretch_margin_right = 10
+texture_under = ExtResource("8_eb6dy")
+texture_progress = ExtResource("9_trceg")
 
-[node name="combo label" type="Label" parent="UI/EnergyBar"]
+[node name="combo label" type="Label" parent="UI/GameHUD/EnergyBar"]
 layout_mode = 0
-offset_left = 0.595229
-offset_top = 137.499
-offset_right = 40.5952
-offset_bottom = 160.499
-scale = Vector2(0.411277, 3.21871)
+offset_left = 47.0
+offset_top = -17.0
+offset_right = 111.0
+offset_bottom = -1.0
 text = "Combo: 0"
+label_settings = SubResource("LabelSettings_a8y0u")
 
-[node name="score label" type="Label" parent="UI/EnergyBar"]
+[node name="score label" type="Label" parent="UI/GameHUD/EnergyBar"]
 layout_mode = 0
-offset_left = 51.1905
-offset_top = 131.249
-offset_right = 124.19
-offset_bottom = 154.249
-scale = Vector2(0.411277, 3.21871)
-text = "ur skor: 0"
+offset_left = -69.0
+offset_top = -9.0
+offset_right = 11.0
+offset_bottom = 23.0
+text = "000"
+label_settings = SubResource("LabelSettings_jkv2x")
+
+[node name="time label" type="Label" parent="UI/GameHUD/EnergyBar"]
+layout_mode = 0
+offset_left = 184.0
+offset_top = -9.0
+offset_right = 239.0
+offset_bottom = 23.0
+text = "000"
+label_settings = SubResource("LabelSettings_jkv2x")
+horizontal_alignment = 2
+
+[node name="Score" type="Label" parent="UI/GameHUD/EnergyBar"]
+layout_mode = 0
+offset_left = -69.0
+offset_top = -19.0
+offset_right = 11.0
+offset_bottom = -2.0
+text = "Score"
+label_settings = SubResource("LabelSettings_trceg")
+
+[node name="Time" type="Label" parent="UI/GameHUD/EnergyBar"]
+layout_mode = 0
+offset_left = 159.0
+offset_top = -19.0
+offset_right = 239.0
+offset_bottom = -3.0
+text = "Time"
+label_settings = SubResource("LabelSettings_trceg")
+horizontal_alignment = 2
 
 [node name="black fence" type="Sprite2D" parent="."]
 position = Vector2(46, 135)

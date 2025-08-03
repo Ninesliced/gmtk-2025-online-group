@@ -14,11 +14,13 @@ var score: int = 0
 var bar
 var combo_label: Label
 var score_label: Label
+var time_label: Label
 
 func _ready() -> void:
-	bar = $"../UI/EnergyBar"
-	combo_label = $"../UI/EnergyBar/combo label"
-	score_label = $"../UI/EnergyBar/score label"
+	bar = $"../UI/GameHUD/EnergyBar"
+	combo_label = $"../UI/GameHUD/EnergyBar/combo label"
+	score_label = $"../UI/GameHUD/EnergyBar/score label"
+	time_label = $"../UI/GameHUD/EnergyBar/time label"
 	energy = max_energy
 	_update_ui()
 
@@ -55,4 +57,4 @@ func apply_lasso_result(pink_count: int, black_count: int) -> void:
 func _update_ui() -> void:
 	bar.value = energy
 	combo_label.text = "Combo: " + str(combo)
-	score_label.text = "ur skor: " + str(score)
+	score_label.text = str(score)
