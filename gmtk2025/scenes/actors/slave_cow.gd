@@ -19,6 +19,7 @@ var timer: float = 0.0
 
 
 func _ready() -> void:
+	animate_in()
 	_pick_new_target()
 
 func _process(delta: float) -> void:
@@ -77,3 +78,16 @@ func _velocity_to_direction():
 
 func _get_current_animation():
 	return "cow_" + _cow_type_to_str(cow_type) + "_" + _velocity_to_direction()
+
+func animate_in():
+	scale = Vector2.ZERO
+	var tween = create_tween()
+	tween.tween_property(self, "scale", Vector2(1.3, 0.7), 0.2)\
+		 .set_trans(Tween.TRANS_SINE)\
+		 .set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "scale", Vector2(0.8, 1.2), 0.15)\
+		 .set_trans(Tween.TRANS_SINE)\
+		 .set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(self, "scale", Vector2.ONE, 0.4)\
+		 .set_trans(Tween.TRANS_ELASTIC)\
+		 .set_ease(Tween.EASE_OUT)

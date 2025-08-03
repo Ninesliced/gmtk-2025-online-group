@@ -94,7 +94,5 @@ func _on_shape_closed(shape: PackedVector2Array, _lasso_type: Cow.CowType) -> vo
 			captured_cows.append(cow)
 			cow.capture()
 
-	print("Pink:", pink_count, "Black:", black_count)
-
 	var sm = $"../ScoreManager"
 	sm.apply_lasso_result(pink_count, black_count, _lasso_type, captured_cows)

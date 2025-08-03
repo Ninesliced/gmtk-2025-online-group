@@ -57,8 +57,11 @@ func apply_lasso_result(pink_count: int, black_count: int, lasso_type: Cow.CowTy
 		points_per_wrong_cow * wrong_count
 	)
 	if final_point_diff > 0:
+		combo += 1
 		points_per_right_cow *= combo_multiplier 
 		points_per_wrong_cow *= combo_multiplier 
+	elif (pink_count+black_count) !=0:
+		combo = 0
 	
 	if final_point_diff > 150:
 		gain_a_lot_point.emit()
@@ -70,7 +73,6 @@ func apply_lasso_result(pink_count: int, black_count: int, lasso_type: Cow.CowTy
 		lose_point.emit()
 		$MissCowSound.play()
 	
-	print(final_point_diff)
 	
 	energy += final_point_diff 
 	score += final_point_diff 

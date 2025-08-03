@@ -1,17 +1,14 @@
 [gd_scene load_steps=39 format=4 uid="uid://cpv386wtlsucs"]
 
 [ext_resource type="PackedScene" uid="uid://de7ib6xc58aex" path="res://scenes/lasso/lasso.tscn" id="1_o5qli"]
-[ext_resource type="Script" uid="uid://ccwt5nc8y5bqh" path="res://scenes/main.gd" id="1_yq6so"]
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_yq6so"]
 [ext_resource type="Script" uid="uid://bkofb2g1mnla7" path="res://scenes/score_manager.gd" id="2_jyhfs"]
 [ext_resource type="Script" uid="uid://cajwtdoeayq2u" path="res://scenes/cow_manager.gd" id="2_sugp2"]
 [ext_resource type="AudioStream" uid="uid://cjyo865wi0wy4" path="res://assets/sounds/catch_cow/sfx_sfx_catch_cow_01.ogg" id="3_2f3dj"]
 [ext_resource type="PackedScene" uid="uid://c3y7gw8a36iol" path="res://scenes/cow_boy.tscn" id="3_tefeu"]
-[ext_resource type="Texture2D" uid="uid://blewfy5t6hx4x" path="res://assets/cowboy/cowboy_neutral.png" id="4_muem4"]
 [ext_resource type="AudioStream" uid="uid://bhmq72fvqcmv6" path="res://assets/sounds/catch_cow/sfx_sfx_catch_cow_02.ogg" id="4_yq6so"]
-[ext_resource type="Texture2D" uid="uid://d3tpjfej0g3im" path="res://assets/cowboy/cowboy_happy.png" id="5_dp3eg"]
 [ext_resource type="AudioStream" uid="uid://bg6wmwtofw21k" path="res://assets/sounds/catch_cow/sfx_sfx_catch_cow_03.ogg" id="5_fv21b"]
 [ext_resource type="PackedScene" uid="uid://dcsecleggohek" path="res://scenes/ui/hud/game_hud.tscn" id="5_tbgi4"]
-[ext_resource type="Texture2D" uid="uid://c3grlw87bjraa" path="res://assets/cowboy/cowboy_angry.png" id="6_0ld40"]
 [ext_resource type="Texture2D" uid="uid://dn06cvcwwuojn" path="res://scenes/fence.png" id="6_85g3d"]
 [ext_resource type="AudioStream" uid="uid://cba0keq3gix7f" path="res://assets/sounds/catch_cow/sfx_sfx_catch_cow_04.ogg" id="6_tel4y"]
 [ext_resource type="Texture2D" uid="uid://cgohblroooisk" path="res://assets/level/level_spritesheet.png" id="7_o6xl0"]
@@ -29,7 +26,9 @@
 [ext_resource type="AudioStream" uid="uid://c1f630dxrb55j" path="res://assets/sounds/catch_none/sfx_catch_none_05.ogg" id="12_fuf3a"]
 [ext_resource type="AudioStream" uid="uid://d3gmv6nt2nor2" path="res://assets/sounds/catch_none/sfx_catch_none_06.ogg" id="13_pibwh"]
 [ext_resource type="AudioStream" uid="uid://b0mrh0tfgj61u" path="res://assets/musics/mus_gmtk_gameplay_2mn.ogg" id="14_a8y0u"]
-[ext_resource type="Script" path="res://scenes/timer.gd" id="14_dp3eg"]
+[ext_resource type="Script" uid="uid://dxrkx8sa3r50u" path="res://scenes/timer.gd" id="14_dp3eg"]
+[ext_resource type="Texture2D" uid="uid://b20003ijd678" path="res://scenes/Cowboy neutrual.png" id="16_fv21b"]
+[ext_resource type="Texture2D" uid="uid://dcalqwyxxx0q3" path="res://scenes/Cowboy happy.png" id="17_tel4y"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_c6pm6"]
 random_pitch = 1.15
@@ -51,6 +50,9 @@ stream_2/stream = ExtResource("10_j8jky")
 stream_3/stream = ExtResource("11_kmb1v")
 stream_4/stream = ExtResource("12_fuf3a")
 stream_5/stream = ExtResource("13_pibwh")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_t6r20"]
+load_path = "res://.godot/imported/Cowboy angry.png-526b96ab6d7e6421774650ec0a5df338.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tipki"]
 texture = ExtResource("7_o6xl0")
@@ -125,9 +127,10 @@ stream = SubResource("AudioStreamRandomizer_c6pm6")
 stream = SubResource("AudioStreamRandomizer_5he1u")
 
 [node name="CowBoy" parent="." instance=ExtResource("3_tefeu")]
-sprite_neutral = ExtResource("4_muem4")
-sprite_happy = ExtResource("5_dp3eg")
-sprite_sad = ExtResource("6_0ld40")
+position = Vector2(0, -29.61)
+sprite_neutral = ExtResource("16_fv21b")
+sprite_happy = ExtResource("17_tel4y")
+sprite_sad = SubResource("CompressedTexture2D_t6r20")
 
 [node name="CowManager" type="Node2D" parent="."]
 position = Vector2(240, -40)
@@ -234,7 +237,7 @@ fence_type = "black"
 position = Vector2(435, 135)
 texture = ExtResource("9_ya4ey")
 script = ExtResource("10_ya4ey")
-spawn_area = Rect2(400, 23, 58, 235)
+spawn_area = Rect2(420, 23, 58, 220)
 fence_type = "pink"
 
 [node name="Camera2D" type="Camera2D" parent="."]
